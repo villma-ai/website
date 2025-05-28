@@ -1,0 +1,70 @@
+{
+  "home": {
+    "title": "AI multi-agents",
+    "subtitle": "Innovating the Future of Work.",
+    "description": "We are a team of three passionate founders, united by a shared vision to revolutionize how businesses operate and empower their teams.",
+    "cta": {
+      "text": "Discover Our Story",
+      "link": "#foundation"
+    }
+  },
+  "foundation": {
+    "title": "From Core Expertise to AI Multi-Agent Innovation",
+    "subtitle": "Before landing in the AI ​​world, we have built our careers on decades of experience and a diverse set of technical capabilities, we bring a robust foundation to every challenge.",
+    "experience": {
+      "years": "20+",
+      "description": "Years of Combined Core Experience",
+      "text": "With a combined wealth of experience, our most seasoned founder has been navigating the dynamic tech industry landscape since 2000, bringing over two decades of invaluable insight and a deep understanding of technological evolution."
+    },
+    "skills": [
+      {
+        "icon": "⚙️",
+        "title": "Project Management",
+        "description": "Ensuring projects are delivered efficiently and effectively."
+      },
+      {
+        "icon": "💻",
+        "title": "Backend Development",
+        "description": "Building robust and scalable server-side solutions."
+      },
+      {
+        "icon": "🎨",
+        "title": "Frontend Development",
+        "description": "Creating intuitive and engaging user interfaces."
+      },
+      {
+        "icon": "🗃️",
+        "title": "Database Architecture",
+        "description": "Designing efficient and secure data storage systems."
+      },
+      {
+        "icon": "🚀",
+        "title": "DevOps Practices",
+        "description": "Streamlining development and operational workflows."
+      },
+      {
+        "icon": "💡",
+        "title": "And More..."
+      }
+    ]
+  },
+  "passion": {
+    "title": "Our Driving Passion",
+    "subtitle": "At the heart of our innovation lies a deep fascination with the potential of Artificial Intelligence.",
+    "description": "What truly drives us is our profound passion for Artificial Intelligence. We are particularly fascinated by its transformative power to simplify, reduce, and accelerate countless processes across office management, sales, and various other automatable functions. We see AI not just as a technology, but as a fundamental catalyst for positive change."
+  },
+  "mission": {
+    "title": "Our Mission: Empowering Your Potential",
+    "subtitle": "We are dedicated to tackling critical business challenges and unlocking new levels of productivity and well-being for your teams.",
+    "challenge": {
+      "icon": "😩",
+      "title": "The Challenge: Employee Overload",
+      "description": "We understand the pervasive challenge of employee overload in today's fast-paced environments. It impacts morale, stifles creativity, and hinders growth."
+    },
+    "solution": {
+      "icon": "✨",
+      "title": "Our AI-Powered Solution",
+      "description": "We believe in empowering businesses to alleviate this burden. Our mission is to leverage AI to create smarter, more efficient workflows. This allows your team to focus on what truly matters while automated systems handle repetitive tasks, injecting productivity even when employees aren't actively at their desks, ultimately driving growth and well-being simultaneously."
+    }
+  }
+} 
