@@ -1,0 +1,78 @@
+{
+  "header": {
+    "title": "Turn Website Visitors into Engaged Customers with AI-Powered Conversations"
+  },
+  "advantages": {
+    "title": "AI Multi-Agent Development Agency",
+    "cards": [
+      {
+        "front": {
+          "title": "From Browsing to Buying",
+          "image": "/images/advantages-10.png",
+          "title-color": "text-orange-600"
+        },
+        "back": {
+          "title": "AI-Powered Sales Conversations",
+          "description": "Make your site capable of converting many more users thanks to an intelligent dialogue available 24 hours a day",
+          "title-color": "text-orange-600"
+        }
+      },
+      {
+        "front": {
+          "title": "AI Sales Team that never sleeps",
+          "image": "/images/advantages-20.png",
+          "title-color": "text-purple-600"
+        },
+        "back": {
+          "title": "Scale Your Sales Team",
+          "description": "Turn Website visitors into Engaged Customers with AI-Powered Conversations. Scale Your Sales Team Without Scaling Costs!",
+          "title-color": "text-purple-600"
+        }
+      },
+      {
+        "front": {
+          "title": "Never Miss a Lead",
+          "image": "/images/advantages-30.png",
+          "title-color": "text-sky-700"
+        },
+        "back": {
+          "title": "AI Agents That Sell While You Sleep!",
+          "description": "Transform Website Traffic into Sales with AI Conversations",
+          "title-color": "text-sky-700"
+        }
+      }
+    ]
+  },
+  "features": {
+    "title": "Key Features",
+    "items": [
+      {
+        "title": "Intelligence & Proactivity",
+        "description": "Transform your sales strategy from reactive to proactive with AI multi-agents.\nOur system identifies high-value prospects before your competitors, ensuring every engagement is timely and tailored.\nWith real-time insights and predictive analytics, your team can focus on building meaningful relationships with prospects most likely to convert.\nStay ahead of the competition with a dynamic, data-driven sales engine.",
+        "image": "/images/intelligent-proactive.png",
+        "image-alt": "Features 1"
+      },
+      {
+        "title": "Secure and Trusted Data",
+        "description": "Your data security is our priority.\nOur AI multi-agent system is built with your data at its core, ensuring complete privacy and protection.\nWe leverage your data ethically to provide personalized insights and recommendations, enhancing your sales strategies while maintaining the highest security standards. Focus on growing your business with confidence, knowing your data is in safe hands.",
+        "image": "/images/security.png",
+        "image-alt": "Features 2"
+      },
+      {
+        "title": "Sync with your internal software",
+        "description": "Seamlessly integrate our AI multi-agent system with your existing tools and knowledge base.\nAccess real-time data, historical insights, and company-specific knowledge to enhance decision-making and improve customer interactions.\nLeverage the full power of AI without disrupting your current operations, saving time and resources while making your sales processes more efficient.",
+        "image": "/images/integration.png",
+        "image-alt": "Features 3"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Transform Your Engagement?",
+    "description": "Contact us today to learn how Villma.ai can help your business.",
+    "button": {
+      "text": "Get in Touch",
+      "link": "/contacts",
+      "style": "bg-pink-500 hover:bg-pink-600"
+    }
+  }
+}

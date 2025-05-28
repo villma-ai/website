@@ -3,12 +3,18 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const isActive = (path: string) => {
+    return pathname === path ? 'text-pink-500' : 'hover:text-pink-500';
   };
 
   return (
@@ -58,14 +64,14 @@ const Header: React.FC = () => {
         <nav className="hidden md:block">
           <ul className="flex space-x-4">
             <li>
-              <Link href="/" className="hover:text-pink-500 transition-colors">
+              <Link href="/" className={`transition-colors ${isActive('/')}`}>
                 Home
               </Link>
             </li>
             <li>
               <Link
                 href="/about"
-                className="hover:text-pink-500 transition-colors"
+                className={`transition-colors ${isActive('/about')}`}
               >
                 About
               </Link>
@@ -73,7 +79,7 @@ const Header: React.FC = () => {
             <li>
               <Link
                 href="/demo"
-                className="hover:text-pink-500 transition-colors"
+                className={`transition-colors ${isActive('/demo')}`}
               >
                 Demo
               </Link>
@@ -81,7 +87,7 @@ const Header: React.FC = () => {
             <li>
               <Link
                 href="/blog"
-                className="hover:text-pink-500 transition-colors"
+                className={`transition-colors ${isActive('/blog')}`}
               >
                 Blog
               </Link>
@@ -89,7 +95,7 @@ const Header: React.FC = () => {
             <li>
               <Link
                 href="/contacts"
-                className="hover:text-pink-500 transition-colors"
+                className={`transition-colors ${isActive('/contacts')}`}
               >
                 Contacts
               </Link>
@@ -110,7 +116,7 @@ const Header: React.FC = () => {
               <li>
                 <Link
                   href="/"
-                  className="block hover:text-pink-500 transition-colors"
+                  className={`block transition-colors ${isActive('/')}`}
                   onClick={toggleMobileMenu}
                 >
                   Home
@@ -119,7 +125,7 @@ const Header: React.FC = () => {
               <li>
                 <Link
                   href="/about"
-                  className="block hover:text-pink-500 transition-colors"
+                  className={`block transition-colors ${isActive('/about')}`}
                   onClick={toggleMobileMenu}
                 >
                   About
@@ -128,7 +134,7 @@ const Header: React.FC = () => {
               <li>
                 <Link
                   href="/demo"
-                  className="block hover:text-pink-500 transition-colors"
+                  className={`block transition-colors ${isActive('/demo')}`}
                   onClick={toggleMobileMenu}
                 >
                   Demo
@@ -137,7 +143,7 @@ const Header: React.FC = () => {
               <li>
                 <Link
                   href="/blog"
-                  className="block hover:text-pink-500 transition-colors"
+                  className={`block transition-colors ${isActive('/blog')}`}
                   onClick={toggleMobileMenu}
                 >
                   Blog
@@ -146,7 +152,7 @@ const Header: React.FC = () => {
               <li>
                 <Link
                   href="/contacts"
-                  className="block hover:text-pink-500 transition-colors"
+                  className={`block transition-colors ${isActive('/contacts')}`}
                   onClick={toggleMobileMenu}
                 >
                   Contacts
