@@ -65,10 +65,10 @@ export default function Home() {
           {content.features.items.map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between"
+              className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br hover:from-white hover:to-gray-50"
             >
               <div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-semibold mb-3 text-sky-600">{feature.title}</h3>
                 <p className="text-gray-700 text-justify">
                   {feature.description.split('\n').map((line, i) => (
                     <span key={i}>
@@ -78,13 +78,15 @@ export default function Home() {
                   ))}
                 </p>
               </div>
-              <Image
-                src={feature.image}
-                alt={feature['image-alt']}
-                className="my-4 w-full"
-                width={300}
-                height={300}
-              />
+              <div className="my-4 transition-transform duration-300 hover:scale-110">
+                <Image
+                  src={feature.image}
+                  alt={feature['image-alt']}
+                  className="w-full"
+                  width={300}
+                  height={300}
+                />
+              </div>
             </div>
           ))}
         </div>
