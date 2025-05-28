@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     'AI Multi-Agent Development Agency specialized in sales ai applications for sme, using Google ADK framework to build multi-agent systems',
   icons: {
     icon: [
-      { url: '/favicon.ico' },
+      { url: 'favicon.ico' },
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
     ],
