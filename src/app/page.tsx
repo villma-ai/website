@@ -1,20 +1,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import content from '@/data/hp/content.json';
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <header className="text-center mb-12">
-        <h1 className="text-2xl italic">{content.header.title}</h1>
+      <header className="text-center mb-16">
+        <h1 className="text-2xl sm:text-4xl italic text-sky-600">{content.header.title_1}<br />{ content.header.title_2}</h1>
       </header>
 
       {/* Advantages Section */}
       <section className="mb-16">
-        <h2 className="text-xl font-semibold mb-8 text-center">
-          {content.advantages.title}
-        </h2>
-
+ 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {content.advantages.cards.map((card, index) => (
             <div key={index} className="group h-[300px] perspective">
@@ -22,7 +25,7 @@ export default function Home() {
                 {/* Front of card */}
                 <div className="absolute inset-0 bg-white p-6 rounded-lg shadow-md">
                   <h3
-                    className={`text-xl font-semibold text-center mb-4 ${card.front['title-color']}`}
+                    className={cn(`text-xl font-semibold text-center mb-4`, card.front['title-color'])}
                   >
                     {card.front.title}
                   </h3>
