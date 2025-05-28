@@ -1,0 +1,19 @@
+{
+  "categories": [
+    {
+      "id": "technology",
+      "name": "Technology",
+      "description": "Latest developments in AI and technology"
+    },
+    {
+      "id": "business",
+      "name": "Business",
+      "description": "Business insights and strategies"
+    },
+    {
+      "id": "future-of-work",
+      "name": "Future of Work",
+      "description": "Trends and predictions about the future of work"
+    }
+  ]
+} 
