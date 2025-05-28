@@ -105,12 +105,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         {/* Featured Image */}
-        <div className="relative h-[400px] mb-8 rounded-xl overflow-hidden">
+        <div className="relative h-[400px] mb-8 rounded-xl overflow-hidden group">
           <Image
             src={post.image}
             alt={post.title}
             fill
-            className="object-cover"
+            className="object-cover transition-all duration-300 group-hover:object-contain"
             priority
           />
         </div>
@@ -134,12 +134,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   className="group"
                 >
                   <article className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="relative h-48">
+                    <div className="relative h-48 overflow-hidden">
                       <Image
                         src={relatedPost.image}
                         alt={relatedPost.title}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-all duration-300 group-hover:object-contain"
                       />
                     </div>
                     <div className="p-4">

@@ -1,7 +1,7 @@
 import React from 'react';
 import fs from 'fs';
 import path from 'path';
-import blogData from '@/data/blog/posts.json';
+import blogData from '@/data/blog/categories.json';
 import BlogListing from '@/components/blog/BlogListing';
 
 interface BlogPost {
