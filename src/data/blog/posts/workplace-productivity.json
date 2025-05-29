@@ -1,12 +1,23 @@
 {
   "id": "workplace-productivity",
-  "title": "Boosting Workplace Productivity with AI",
-  "description": "How artificial intelligence is transforming workplace efficiency and employee satisfaction.",
-  "date": "2024-03-15",
+  "title": "Boosting Workplace Productivity with AI Solutions",
+  "description": "Learn how AI-powered tools and solutions can significantly enhance workplace productivity and efficiency.",
+  "date": "2024-03-18",
   "author": "Villma Team",
   "tags": ["Productivity", "AI", "Workplace"],
   "category": "Business",
   "image": "/blog/workplace-productivity.png",
   "content": "In today's fast-paced business environment, maintaining high productivity...",
-  "readTime": "4 min read"
+  "readTime": "5 min read",
+  "seo": {
+    "title": "Boost Workplace Productivity with AI Solutions | Villma.ai",
+    "description": "Discover how AI-powered tools can transform your workplace productivity. Learn practical strategies and solutions for implementing AI in your business operations.",
+    "keywords": ["workplace productivity", "AI solutions", "business efficiency", "productivity tools", "AI automation", "workplace optimization"],
+    "ogImage": "/blog/workplace-productivity.png",
+    "ogTitle": "AI-Powered Workplace Productivity Solutions",
+    "ogDescription": "Learn how AI tools can enhance your workplace productivity and streamline business operations.",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "AI Solutions for Workplace Productivity",
+    "twitterDescription": "Discover how AI can boost your workplace productivity and efficiency."
+  }
 } 

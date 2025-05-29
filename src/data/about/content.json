@@ -8,6 +8,17 @@
       "link": "#foundation"
     }
   },
+  "seo": {
+    "title": "About Villma.ai - AI Multi-Agent Innovation Team | 20+ Years Experience",
+    "description": "Meet the team behind Villma.ai - three passionate founders with 20+ years of combined experience in AI, development, and business innovation. Learn about our mission to transform workplace productivity.",
+    "keywords": ["AI multi-agents", "team experience", "business innovation", "workplace transformation", "AI development", "productivity solutions"],
+    "ogImage": "/images/about-team.png",
+    "ogTitle": "About Villma.ai - AI Multi-Agent Innovation Team",
+    "ogDescription": "Discover our team's 20+ years of experience in AI and business innovation, dedicated to transforming workplace productivity.",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "About Villma.ai - AI Innovation Team",
+    "twitterDescription": "Meet our team of AI experts with 20+ years of experience in transforming business operations."
+  },
   "foundation": {
     "title": "From Core Expertise to AI Multi-Agent Innovation",
     "subtitle": "Before landing in the AI ​​world, we have built our careers on decades of experience and a diverse set of technical capabilities, we bring a robust foundation to every challenge.",

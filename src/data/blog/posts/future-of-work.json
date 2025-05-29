@@ -1,12 +1,23 @@
 {
   "id": "future-of-work",
-  "title": "The Future of Work: AI-Powered Collaboration",
-  "description": "Exploring how AI is reshaping the way teams collaborate and work together.",
-  "date": "2024-03-10",
+  "title": "The Future of Work: AI's Impact on Modern Business",
+  "description": "Exploring how artificial intelligence is reshaping the workplace and creating new opportunities for businesses.",
+  "date": "2024-03-19",
   "author": "Villma Team",
-  "tags": ["Future of Work", "Collaboration", "AI"],
-  "category": "Future of Work",
+  "tags": ["AI", "Future of Work", "Business"],
+  "category": "Business",
   "image": "/blog/future-of-work.png",
-  "content": "The workplace is undergoing a profound transformation...",
-  "readTime": "6 min read"
+  "content": "The workplace is undergoing a significant transformation...",
+  "readTime": "4 min read",
+  "seo": {
+    "title": "The Future of Work: How AI is Transforming Modern Business | Villma.ai",
+    "description": "Explore the transformative impact of AI on the workplace. Learn how artificial intelligence is creating new opportunities and reshaping business operations.",
+    "keywords": ["future of work", "AI in business", "workplace transformation", "artificial intelligence", "business innovation", "digital workplace"],
+    "ogImage": "/blog/future-of-work.png",
+    "ogTitle": "The Future of Work: AI's Transformative Impact",
+    "ogDescription": "Discover how artificial intelligence is reshaping the modern workplace and creating new business opportunities.",
+    "twitterCard": "summary_large_image",
+    "twitterTitle": "The Future of Work: AI's Role in Business",
+    "twitterDescription": "Learn how AI is transforming the workplace and creating new opportunities for businesses."
+  }
 } 

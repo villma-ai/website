@@ -3,11 +3,60 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getBlogPosts } from '@/app/actions/blog';
+import type { Metadata } from 'next';
 
 interface BlogPostPageProps {
   params: Promise<{
     id: string;
   }>;
+}
+
+// Generate metadata for the page
+export async function generateMetadata({
+  params
+}: BlogPostPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const posts = await getBlogPosts();
+  const post = posts.find((p) => p.id === id);
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      description: 'The requested blog post could not be found.'
+    };
+  }
+
+  const title = post.seo?.title || post.title;
+  const description = post.seo?.description || post.description;
+  const keywords = post.seo?.keywords || post.tags;
+  const ogImage = post.seo?.ogImage || post.image;
+  const ogTitle = post.seo?.ogTitle || title;
+  const ogDescription = post.seo?.ogDescription || description;
+  const twitterCard = post.seo?.twitterCard || 'summary_large_image';
+  const twitterTitle = post.seo?.twitterTitle || title;
+  const twitterDescription = post.seo?.twitterDescription || description;
+  const twitterImage = post.seo?.twitterImage || ogImage;
+
+  return {
+    title,
+    description,
+    keywords,
+    openGraph: {
+      title: ogTitle,
+      description: ogDescription,
+      images: [ogImage],
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      tags: post.tags
+    },
+    twitter: {
+      card: twitterCard,
+      title: twitterTitle,
+      description: twitterDescription,
+      images: [twitterImage]
+    }
+  };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

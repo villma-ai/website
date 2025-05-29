@@ -1,5 +1,23 @@
 import styles from './about.module.css';
 import content from '@/data/about/content.json';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: content.seo.title,
+  description: content.seo.description,
+  keywords: content.seo.keywords,
+  openGraph: {
+    title: content.seo.ogTitle,
+    description: content.seo.ogDescription,
+    images: [content.seo.ogImage]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: content.seo.twitterTitle,
+    description: content.seo.twitterDescription,
+    images: [content.seo.ogImage]
+  }
+};
 
 export default function About() {
   return (

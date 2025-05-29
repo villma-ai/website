@@ -12,6 +12,19 @@ export interface BlogPost {
   image: string;
   content: string;
   readTime: string;
+  // SEO fields
+  seo?: {
+    title?: string;
+    description?: string;
+    keywords?: string[];
+    ogImage?: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    twitterCard?: 'summary' | 'summary_large_image';
+    twitterTitle?: string;
+    twitterDescription?: string;
+    twitterImage?: string;
+  };
 }
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
