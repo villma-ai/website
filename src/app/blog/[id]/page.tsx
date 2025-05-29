@@ -32,14 +32,15 @@ async function getBlogPosts(): Promise<BlogPost[]> {
 }
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { id } = await params;
   const posts = await getBlogPosts();
-  const post = posts.find((p) => p.id === params.id);
+  const post = posts.find((p) => p.id === id);
 
   if (!post) {
     notFound();

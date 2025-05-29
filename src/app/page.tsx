@@ -1,23 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import content from '@/data/hp/content.json';
-import { type ClassValue, clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
       <header className="text-center mb-16">
-        <h1 className="text-2xl sm:text-4xl italic text-sky-600">{content.header.title_1}<br />{ content.header.title_2}</h1>
+        <h1 className="text-2xl sm:text-4xl italic text-sky-600">
+          {content.header.title_1}
+          <br />
+          {content.header.title_2}
+        </h1>
       </header>
 
       {/* Advantages Section */}
       <section className="mb-16">
- 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {content.advantages.cards.map((card, index) => (
             <div key={index} className="group h-[300px] perspective">
@@ -25,7 +22,8 @@ export default function Home() {
                 {/* Front of card */}
                 <div className="absolute inset-0 bg-white p-6 rounded-lg shadow-md">
                   <h3
-                    className={cn(`text-xl font-semibold text-center mb-4`, card.front['title-color'])}
+                    className={`text-xl font-semibold text-center mb-4
+                      ${card.front['title-color']}`}
                   >
                     {card.front.title}
                   </h3>
@@ -68,7 +66,9 @@ export default function Home() {
               className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br hover:from-white hover:to-gray-50"
             >
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-sky-600">{feature.title}</h3>
+                <h3 className="text-xl font-semibold mb-3 text-sky-600">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-700 text-justify">
                   {feature.description.split('\n').map((line, i) => (
                     <span key={i}>
