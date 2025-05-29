@@ -1,35 +1,7 @@
 import React from 'react';
-import fs from 'fs';
-import path from 'path';
 import blogData from '@/data/blog/categories.json';
 import BlogListing from '@/components/blog/BlogListing';
-
-interface BlogPost {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  author: string;
-  tags: string[];
-  category: string;
-  image: string;
-  content: string;
-  readTime: string;
-}
-
-// Function to get all blog posts
-async function getBlogPosts(): Promise<BlogPost[]> {
-  const postsDirectory = path.join(process.cwd(), 'src/data/blog/posts');
-  const filenames = fs.readdirSync(postsDirectory);
-
-  const posts = filenames.map((filename) => {
-    const filePath = path.join(postsDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(fileContents) as BlogPost;
-  });
-
-  return posts;
-}
+import { getBlogPosts, type BlogPost } from '@/app/actions/blog';
 
 // Function to calculate tag counts
 function calculateTagCounts(posts: BlogPost[]) {
