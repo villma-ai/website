@@ -1,45 +1,68 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import fs from 'fs';
-import path from 'path';
 import { notFound } from 'next/navigation';
-
-interface BlogPost {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  author: string;
-  tags: string[];
-  category: string;
-  image: string;
-  content: string;
-  readTime: string;
-}
-
-async function getBlogPosts(): Promise<BlogPost[]> {
-  const postsDirectory = path.join(process.cwd(), 'src/data/blog/posts');
-  const filenames = fs.readdirSync(postsDirectory);
-
-  const posts = filenames.map((filename) => {
-    const filePath = path.join(postsDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(fileContents) as BlogPost;
-  });
-
-  return posts;
-}
+import { getBlogPosts } from '@/app/actions/blog';
+import type { Metadata } from 'next';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     id: string;
+  }>;
+}
+
+// Generate metadata for the page
+export async function generateMetadata({
+  params
+}: BlogPostPageProps): Promise<Metadata> {
+  const { id } = await params;
+  const posts = await getBlogPosts();
+  const post = posts.find((p) => p.id === id);
+
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+      description: 'The requested blog post could not be found.'
+    };
+  }
+
+  const title = post.seo?.title || post.title;
+  const description = post.seo?.description || post.description;
+  const keywords = post.seo?.keywords || post.tags;
+  const ogImage = post.seo?.ogImage || post.image;
+  const ogTitle = post.seo?.ogTitle || title;
+  const ogDescription = post.seo?.ogDescription || description;
+  const twitterCard = post.seo?.twitterCard || 'summary_large_image';
+  const twitterTitle = post.seo?.twitterTitle || title;
+  const twitterDescription = post.seo?.twitterDescription || description;
+  const twitterImage = post.seo?.twitterImage || ogImage;
+
+  return {
+    title,
+    description,
+    keywords,
+    openGraph: {
+      title: ogTitle,
+      description: ogDescription,
+      images: [ogImage],
+      type: 'article',
+      publishedTime: post.date,
+      authors: [post.author],
+      tags: post.tags
+    },
+    twitter: {
+      card: twitterCard,
+      title: twitterTitle,
+      description: twitterDescription,
+      images: [twitterImage]
+    }
   };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
+  const { id } = await params;
   const posts = await getBlogPosts();
-  const post = posts.find((p) => p.id === params.id);
+  const post = posts.find((p) => p.id === id);
 
   if (!post) {
     notFound();
@@ -105,12 +128,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
 
         {/* Featured Image */}
-        <div className="relative h-[400px] mb-8 rounded-xl overflow-hidden">
+        <div className="relative h-[400px] mb-8 rounded-xl overflow-hidden group">
           <Image
             src={post.image}
             alt={post.title}
             fill
-            className="object-cover"
+            className="object-cover transition-all duration-300 group-hover:object-contain"
             priority
           />
         </div>
@@ -134,12 +157,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   className="group"
                 >
                   <article className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                    <div className="relative h-48">
+                    <div className="relative h-48 overflow-hidden">
                       <Image
                         src={relatedPost.image}
                         alt={relatedPost.title}
                         fill
-                        className="object-cover"
+                        className="object-cover transition-all duration-300 group-hover:object-contain"
                       />
                     </div>
                     <div className="p-4">

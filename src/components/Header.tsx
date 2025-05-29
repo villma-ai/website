@@ -14,14 +14,17 @@ const Header: React.FC = () => {
   };
 
   const isActive = (path: string) => {
-    return pathname === path ? 'text-pink-500' : 'hover:text-pink-500';
+    if (path === '/') {
+      return pathname === path ? 'text-pink-500' : 'hover:text-pink-500';
+    }
+    return pathname.startsWith(path) ? 'text-pink-500' : 'hover:text-pink-500';
   };
 
   return (
     <header className="sticky top-0 z-50 bg-[#1a202c] text-gray-100 shadow-md">
       <div className="container mx-auto flex justify-between items-center sm:py-4 md:py-0 px-4">
         {/* Logo goes here */}
-        <div className="flex items-center">
+        <div className="flex items-center gap-x-4">
           <Link href="/">
             <Image
               src="/Villma-Logo_2025-05-21.jpg"
@@ -31,6 +34,9 @@ const Header: React.FC = () => {
               priority
             />
           </Link>
+          <h2 className="font-semibold text-xl text-white">
+            AI Multi-Agent Development Agency
+          </h2>
         </div>
 
         {/* Mobile menu button */}

@@ -61,12 +61,12 @@ export default function BlogListing({
             className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow"
           >
             <Link href={`/blog/${post.id}`}>
-              <div className="relative h-48">
+              <div className="relative h-48 overflow-hidden group">
                 <Image
                   src={post.image}
                   alt={post.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-all duration-300 group-hover:object-contain"
                 />
               </div>
               <div className="p-6">

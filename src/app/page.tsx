@@ -1,20 +1,38 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import content from '@/data/hp/content.json';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: content.seo.title,
+  description: content.seo.description,
+  keywords: content.seo.keywords,
+  openGraph: {
+    title: content.seo.ogTitle,
+    description: content.seo.ogDescription,
+    images: [content.seo.ogImage]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: content.seo.twitterTitle,
+    description: content.seo.twitterDescription,
+    images: [content.seo.ogImage]
+  }
+};
 
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <header className="text-center mb-12">
-        <h1 className="text-2xl italic">{content.header.title}</h1>
+      <header className="text-center mb-16">
+        <h1 className="text-2xl sm:text-4xl italic text-sky-600">
+          {content.header.title_1}
+          <br />
+          {content.header.title_2}
+        </h1>
       </header>
 
       {/* Advantages Section */}
       <section className="mb-16">
-        <h2 className="text-xl font-semibold mb-8 text-center">
-          {content.advantages.title}
-        </h2>
-
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {content.advantages.cards.map((card, index) => (
             <div key={index} className="group h-[300px] perspective">
@@ -22,7 +40,8 @@ export default function Home() {
                 {/* Front of card */}
                 <div className="absolute inset-0 bg-white p-6 rounded-lg shadow-md">
                   <h3
-                    className={`text-xl font-semibold text-center mb-4 ${card.front['title-color']}`}
+                    className={`text-xl font-semibold text-center mb-4
+                      ${card.front['title-color']}`}
                   >
                     {card.front.title}
                   </h3>
@@ -62,10 +81,12 @@ export default function Home() {
           {content.features.items.map((feature, index) => (
             <div
               key={index}
-              className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between"
+              className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br hover:from-white hover:to-gray-50"
             >
               <div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-semibold mb-3 text-sky-600">
+                  {feature.title}
+                </h3>
                 <p className="text-gray-700 text-justify">
                   {feature.description.split('\n').map((line, i) => (
                     <span key={i}>
@@ -75,13 +96,15 @@ export default function Home() {
                   ))}
                 </p>
               </div>
-              <Image
-                src={feature.image}
-                alt={feature['image-alt']}
-                className="my-4 w-full"
-                width={300}
-                height={300}
-              />
+              <div className="my-4 transition-transform duration-300 hover:scale-110">
+                <Image
+                  src={feature.image}
+                  alt={feature['image-alt']}
+                  className="w-full"
+                  width={300}
+                  height={300}
+                />
+              </div>
             </div>
           ))}
         </div>
