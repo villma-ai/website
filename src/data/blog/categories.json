@@ -14,6 +14,56 @@
       "id": "future-of-work",
       "name": "Future of Work",
       "description": "Trends and predictions about the future of work"
-    }
+    },
+      {
+        "id": "vision-and-philosophy",
+        "name": "Vision & Philosophy",
+        "description": "Articles that define your startup’s mission and the broader purpose of AI."
+      },
+      {
+        "id": "communication-innovation",
+        "name": "Communication Innovation",
+        "description": "Exploring how AI agents transform the way websites and users interact."
+      },
+      {
+        "id": "data-and-roi",
+        "name": "Data & ROI",
+        "description": "Real-world metrics showing business benefits from AI implementation."
+      },
+      {
+        "id": "use-cases-and-applications",
+        "name": "Use Cases & Applications",
+        "description": "Specific scenarios where AI agents are used in business workflows."
+      },
+      {
+        "id": "case-studies-and-success-stories",
+        "name": "Case Studies & Success Stories",
+        "description": "Examples of well-known companies using AI agents effectively."
+      },
+      {
+        "id": "architecture-and-design",
+        "name": "Architecture & Design",
+        "description": "Technical insights on how to build and organize multi-agent systems."
+      },
+      {
+        "id": "human-ai-collaboration",
+        "name": "Human-AI Collaboration",
+        "description": "Articles focusing on synergy between human teams and AI agents."
+      },
+      {
+        "id": "implementation-and-how-to",
+        "name": "Implementation & How-To",
+        "description": "Practical guides to get started with AI agent solutions."
+      },
+      {
+        "id": "ethics-and-trust",
+        "name": "Ethics & Trust",
+        "description": "Content dealing with transparency, responsibility, and safe AI use."
+      },
+      {
+        "id": "trends-and-thought-leadership",
+        "name": "Trends & Thought Leadership",
+        "description": "Forward-looking insights about where the AI agent space is heading."
+      } 
   ]
 } 

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getBlogPosts } from '@/app/actions/blog';
 import type { Metadata } from 'next';
+import ReactMarkdown from 'react-markdown';
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -68,14 +69,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  // Find related posts (same category or tags)
+  // Find related posts (same category)
   const relatedPosts = posts
     .filter((p) => p.id !== post.id)
-    .filter(
-      (p) =>
-        p.category === post.category ||
-        p.tags.some((tag) => post.tags.includes(tag))
-    )
+    .filter((p) => p.category === post.category)
     .slice(0, 3);
 
   return (
@@ -115,16 +112,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {post.title}
           </h1>
           <p className="text-xl text-slate-600 mb-6">{post.description}</p>
-          <div className="flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 bg-slate-100 text-slate-600 text-sm rounded-full"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
         </div>
 
         {/* Featured Image */}
@@ -140,7 +127,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Post Content */}
         <div className="prose prose-lg max-w-none">
-          <p>{post.content}</p>
+          <ReactMarkdown>{post.content}</ReactMarkdown>
         </div>
 
         {/* Related Posts */}
