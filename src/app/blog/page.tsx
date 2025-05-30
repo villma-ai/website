@@ -1,25 +1,24 @@
 import React from 'react';
-import blogData from '@/data/blog/categories.json';
 import blogContent from '@/data/blog/content.json';
 import BlogListing from '@/components/blog/BlogListing';
 import { getBlogPosts, type BlogPost } from '@/app/actions/blog';
 import type { Metadata } from 'next';
 
-// Function to calculate tag counts
-function calculateTagCounts(posts: BlogPost[]) {
-  const tagCounts: { [key: string]: number } = {};
+// Function to calculate category counts
+function calculateCategoryCounts(posts: BlogPost[]) {
+  const categoryCounts: { [key: string]: number } = {};
 
   posts.forEach((post) => {
-    post.tags.forEach((tag) => {
-      tagCounts[tag] = (tagCounts[tag] || 0) + 1;
-    });
+    categoryCounts[post.category] = (categoryCounts[post.category] || 0) + 1;
   });
 
-  return Object.entries(tagCounts).map(([name, count]) => ({
-    id: name.toLowerCase().replace(/\s+/g, '-'),
-    name,
-    count
-  }));
+  return Object.entries(categoryCounts)
+    .map(([name, count]) => ({
+      id: name.toLowerCase().replace(/\s+/g, '-'),
+      name,
+      count
+    }))
+    .filter(category => category.count > 0); // Only show categories with posts
 }
 
 export const metadata: Metadata = {
@@ -41,15 +40,24 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const posts = await getBlogPosts();
-  const tags = calculateTagCounts(posts);
+  const categories = calculateCategoryCounts(posts);
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <BlogListing
-        initialPosts={posts}
-        categories={blogData.categories}
-        initialTags={tags}
-      />
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-slate-800 mb-4">
+            {blogContent.seo.title}
+          </h1>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            {blogContent.seo.description}
+          </p>
+        </div>
+
+        {/* Blog Content */}
+        <BlogListing posts={posts} categories={categories} />
+      </div>
     </div>
   );
 }
