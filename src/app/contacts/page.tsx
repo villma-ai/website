@@ -1,7 +1,7 @@
 import React from 'react';
-import ContactForm from '../../components/ContactForm';
 import content from '@/data/contacts/content.json';
 import type { Metadata } from 'next';
+import ContactForm from '@/components/contact/ContactForm';
 
 export const metadata: Metadata = {
   title: content.seo.title,

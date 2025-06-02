@@ -3,23 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8f8f8; /* Light off-white */
-  --foreground: #1a202c; /* Dark navy */
-
   --color-orange: #ff9a8b;
   --color-pink: #ff6a88;
   --color-blue-purple: #aa66cc;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a202c; /* Dark navy background */
-    --foreground: #f8f8f8; /* Light text */
+:root.light {
+  --background: #f8f8f8; /* Light off-white */
+  --foreground: #1a202c; /* Dark navy */
+}
 
-    --color-orange: #ff9a8b;
-    --color-pink: #ff6a88;
-    --color-blue-purple: #aa66cc;
-  }
+:root.dark {
+  --background: #1a202c; /* Dark navy background */
+  --foreground: #f8f8f8; /* Light text */
 }
 
 body {

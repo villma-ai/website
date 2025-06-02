@@ -29,7 +29,11 @@ export interface BlogPost {
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
   const postsDirectory = path.join(process.cwd(), 'src/data/blog/posts');
-  const filenames = fs.readdirSync(postsDirectory);
+  const filenames = fs.readdirSync(postsDirectory)
+    .filter(filename => {
+      const filePath = path.join(postsDirectory, filename);
+      return fs.statSync(filePath).isFile() && filename.endsWith('.json');
+    });
 
   const posts = filenames.map((filename) => {
     const filePath = path.join(postsDirectory, filename);
