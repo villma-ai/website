@@ -27,6 +27,10 @@ export default function BlogListing({ posts, categories }: BlogListingProps) {
             post.category.toLowerCase() === selectedCategory.toLowerCase()
         );
 
+  filteredPosts.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
   return (
     <div className="max-w-6xl mx-auto">
       <h1 className="text-4xl font-bold text-sky-700 mb-8">Blog</h1>

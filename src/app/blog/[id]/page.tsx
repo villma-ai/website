@@ -127,7 +127,18 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         {/* Post Content */}
         <div className="prose prose-lg max-w-none">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              hr: () => <hr className="my-6" />,
+              h2: ({ children }) => (
+                <h2 className="text-2xl font-bold text-slate-800 mb-4">
+                  {children}
+                </h2>
+              )
+            }}
+          >
+            {post.content}
+          </ReactMarkdown>
         </div>
 
         {/* Related Posts */}
