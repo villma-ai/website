@@ -102,6 +102,14 @@ const Header: React.FC = () => {
             </li>
             <li>
               <Link
+                href="/pricing"
+                className={`transition-colors ${isActive('/pricing')}`}
+              >
+                Pricing
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/contacts"
                 className={`transition-colors ${isActive('/contacts')}`}
               >
@@ -194,6 +202,15 @@ const Header: React.FC = () => {
                   onClick={toggleMobileMenu}
                 >
                   Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/pricing"
+                  className={`block transition-colors ${isActive('/pricing')}`}
+                  onClick={toggleMobileMenu}
+                >
+                  Pricing
                 </Link>
               </li>
               <li>
