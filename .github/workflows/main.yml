@@ -37,6 +37,7 @@ jobs:
             next.config.js
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
