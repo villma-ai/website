@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast } from 'react-hot-toast';
+import Link from 'next/link';
 
 const requestReasons = [
   {
@@ -36,12 +37,15 @@ const requestReasons = [
 const formSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Invalid email address'),
-  phone: z.string().min(10, 'Phone number must be at least 10 digits'),
-  company: z.string().min(2, 'Company name must be at least 2 characters'),
+  phone: z.string().optional(),
+  company: z.string().optional(),
   message: z.string().min(10, 'Message must be at least 10 characters'),
   requestReasons: z
     .array(z.string())
-    .min(1, 'Please select at least one option')
+    .min(1, 'Please select at least one option'),
+  privacyConsent: z.boolean().refine((val) => val === true, {
+    message: 'You must agree to our privacy policy'
+  })
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -87,7 +91,7 @@ export default function ContactForm() {
             htmlFor="name"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Name
+            Name *
           </label>
           <input
             type="text"
@@ -107,7 +111,7 @@ export default function ContactForm() {
             htmlFor="email"
             className="block text-sm font-medium text-gray-700 mb-1"
           >
-            Email
+            Email *
           </label>
           <input
             type="email"
@@ -167,7 +171,7 @@ export default function ContactForm() {
 
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-3">
-          What would you like to implement?
+          What would you like to implement? *
         </label>
         <div className="space-y-3">
           {requestReasons.map((reason) => (
@@ -213,7 +217,7 @@ export default function ContactForm() {
           htmlFor="message"
           className="block text-sm font-medium text-gray-700 mb-1"
         >
-          Message
+          Message *
         </label>
         <textarea
           id="message"
@@ -225,6 +229,40 @@ export default function ContactForm() {
         />
         {errors.message && (
           <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
+        )}
+      </div>
+
+      <div>
+        <div className="flex items-start">
+          <div className="flex items-center h-5">
+            <input
+              type="checkbox"
+              id="privacyConsent"
+              {...register('privacyConsent')}
+              className="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-500"
+            />
+          </div>
+          <div className="ml-3">
+            <label
+              htmlFor="privacyConsent"
+              className="text-sm text-gray-700 cursor-pointer"
+            >
+              I agree to the{' '}
+              <Link
+                href="/privacy"
+                className="text-sky-600 hover:text-sky-700 underline"
+              >
+                Privacy Policy
+              </Link>{' '}
+              and consent to the processing of my personal data for the purpose
+              of responding to my inquiry.
+            </label>
+          </div>
+        </div>
+        {errors.privacyConsent && (
+          <p className="mt-1 text-sm text-red-500">
+            {errors.privacyConsent.message}
+          </p>
         )}
       </div>
 
