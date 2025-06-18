@@ -18,6 +18,35 @@ const PricingPage = () => {
 
         <PricingCards />
 
+        {/* Money Back Guarantee */}
+        <div className="mt-16 text-center">
+          <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-8 shadow-2xl transform hover:scale-105 transition-transform">
+            <div className="flex items-center justify-center mb-4">
+              <svg
+                className="h-12 w-12 text-white mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <h2 className="text-3xl font-bold text-white">
+                30-Day Money Back Guarantee
+              </h2>
+            </div>
+            <p className="text-xl text-green-100 font-medium">
+              Try our services risk-free! If you&apos;re not completely
+              satisfied within 30 days, we&apos;ll give you a full refund. No
+              questions asked.
+            </p>
+          </div>
+        </div>
+
         {/* Additional Info */}
         <div className="mt-12 text-center text-gray-600 dark:text-gray-300">
           <p>{pricingData.footer}</p>

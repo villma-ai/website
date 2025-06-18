@@ -14,7 +14,7 @@ const PricingCards = () => {
             plan.isPopular ? 'border-2 border-pink-500' : ''
           }`}
         >
-          <div className="p-8">
+          <div className="p-8 h-full flex flex-col">
             {plan.isPopular && (
               <div className="absolute top-0 right-0 bg-pink-500 text-white px-4 py-1 rounded-bl-lg">
                 Popular
@@ -36,41 +36,42 @@ const PricingCards = () => {
                 or €{plan.yearlyPrice}/year
               </p>
             </div>
-
-            <ul className="space-y-4 mb-8">
-              {plan.features.map((feature) => (
-                <li key={feature.name} className="flex items-start">
-                  <svg
-                    className="h-6 w-6 text-pink-500 mr-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                  {feature.tooltip ? (
-                    <Tooltip content={feature.tooltip}>
-                      <span className="text-gray-600 dark:text-gray-300 cursor-help">
+            <div className="flex flex-col justify-between flex-1">
+              <ul className="space-y-4 mb-8">
+                {plan.features.map((feature) => (
+                  <li key={feature.name} className="flex items-start">
+                    <svg
+                      className="h-6 w-6 text-pink-500 mr-2"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {feature.tooltip ? (
+                      <Tooltip content={feature.tooltip}>
+                        <span className="text-gray-600 dark:text-gray-300 cursor-help">
+                          {feature.name}
+                        </span>
+                      </Tooltip>
+                    ) : (
+                      <span className="text-gray-600 dark:text-gray-300">
                         {feature.name}
                       </span>
-                    </Tooltip>
-                  ) : (
-                    <span className="text-gray-600 dark:text-gray-300">
-                      {feature.name}
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
+                    )}
+                  </li>
+                ))}
+              </ul>
 
-            <button className="w-full bg-pink-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-pink-600 transition-colors">
-              Get Started
-            </button>
+              <button className="w-full bg-pink-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-pink-600 transition-colors">
+                Get Started
+              </button>
+            </div>
           </div>
         </div>
       ))}
