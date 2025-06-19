@@ -13,7 +13,7 @@ jobs:
     env:
       PROJECT_ID: villma-dev
       GCR_HOSTNAME: us-central1-docker.pkg.dev
-      IMAGE_NAME: villma-website/villma-website
+      IMAGE_NAME: villma/villma-website
       GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
       GOOGLE_PROJECT: villma-dev
       GOOGLE_REGION: us-central1
