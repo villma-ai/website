@@ -77,10 +77,12 @@ jobs:
     environment: dev
     needs: build-and-push
     steps:
-    - name: Clone Terraform repository
-      run: |
-        git clone git@github.com:villma-ai/villma-terraform.git terraform-repo
-        cd terraform-repo
+    - name: Checkout Terraform repository
+      uses: actions/checkout@v4
+      with:
+        repository: villma-ai/villma-terraform
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        path: terraform
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
@@ -98,15 +100,19 @@ jobs:
         project_id: ${{ env.GOOGLE_PROJECT }}
 
     - name: Terraform Init
+      working-directory: terraform
       run: terraform init -backend-config=environments/dev/backend.conf
 
     - name: Terraform Format Check
+      working-directory: terraform
       run: terraform fmt -check -recursive
 
     - name: Terraform Validate
+      working-directory: terraform
       run: terraform validate
 
     - name: Terraform Plan
+      working-directory: terraform
       run: |
         terraform plan \
           -var-file=environments/dev/terraform.tfvars \
@@ -127,6 +133,7 @@ jobs:
       run: echo "value=true" >> $GITHUB_OUTPUT
 
     - name: Terraform Apply
+      working-directory: terraform
       run: terraform apply -var-file=environments/dev/terraform.tfvars -target=module.website.google_cloud_run_service.website -auto-approve
       env:
         TF_VAR_app_version: ${{ github.event.inputs.deploy_version || github.sha }}
