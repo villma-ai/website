@@ -2,9 +2,9 @@ name: Build and Push to GCR
 
 on:
   push:
-    branches: [ cicd ]
+    branches: [ main ]
   pull_request:
-    branches: [ cicd ]
+    branches: [ main ]
   workflow_dispatch:
     inputs:
       deploy_version:
