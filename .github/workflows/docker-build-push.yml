@@ -11,8 +11,6 @@ env:
   PROJECT_ID: villma-dev
   GCR_HOSTNAME: us-central1-docker.pkg.dev
   IMAGE_NAME: villma-website
-  WORKLOAD_PROVIDER: ${{ secrets.GCP_WORKLOAD_PROVIDER }}
-  SERVICE_ACCOUNT: ${{ secrets.GCP_SERVICE_ACCOUNT }}
 
 jobs:
   build-and-push:
@@ -25,11 +23,31 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Debug secrets availability
+      run: |
+        echo "Checking if secrets are available..."
+        if [ -n "${{ secrets.GCP_WORKLOAD_PROVIDER }}" ]; then
+          echo "GCP_WORKLOAD_PROVIDER is set"
+        else
+          echo "GCP_WORKLOAD_PROVIDER is NOT set"
+        fi
+        if [ -n "${{ secrets.GCP_SERVICE_ACCOUNT }}" ]; then
+          echo "GCP_SERVICE_ACCOUNT is set"
+        else
+          echo "GCP_SERVICE_ACCOUNT is NOT set"
+        fi
+
     - name: Authenticate to GCP with WIF
       uses: google-github-actions/auth@v2
       with:
-        workload_identity_provider: ${{ env.WORKLOAD_PROVIDER }}
-        service_account: ${{ env.SERVICE_ACCOUNT }}
+        workload_identity_provider: ${{ secrets.GCP_WORKLOAD_PROVIDER }}
+        service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+    # Alternative authentication method using service account key
+    # - name: Authenticate to GCP with Service Account Key
+    #   uses: google-github-actions/auth@v2
+    #   with:
+    #     credentials_json: ${{ secrets.GCP_SA_KEY }}
 
     # - name: Set up Cloud SDK
     #   uses: google-github-actions/setup-gcloud@v2
