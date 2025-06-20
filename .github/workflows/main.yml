@@ -160,7 +160,7 @@ jobs:
           -target=module.website.google_cloud_run_service.website \
           -out=tfplan
       env:
-        TF_VAR_app_version: ${{ needs.build-and-push.outputs.version }}
+        TF_VAR_website_app_version: ${{ needs.build-and-push.outputs.version }}
 
     - name: Upload Plan Artifact
       uses: actions/upload-artifact@v4
@@ -177,7 +177,7 @@ jobs:
       working-directory: terraform
       run: terraform apply -var-file=environments/dev/terraform.tfvars -target=module.website.google_cloud_run_service.website -auto-approve
       env:
-        TF_VAR_app_version: ${{ needs.build-and-push.outputs.version }}
+        TF_VAR_website_app_version: ${{ needs.build-and-push.outputs.version }}
 
   deploy-prd:
     runs-on: ubuntu-latest
@@ -230,7 +230,7 @@ jobs:
             -target=module.website.google_cloud_run_service.website \
             -out=tfplan
         env:
-          TF_VAR_app_version: ${{ needs.build-and-push.outputs.version }}
+          TF_VAR_website_app_version: ${{ needs.build-and-push.outputs.version }}
 
       - name: Upload Plan Artifact
         uses: actions/upload-artifact@v4
@@ -247,4 +247,4 @@ jobs:
         working-directory: terraform
         run: terraform apply -var-file=environments/prd/terraform.tfvars -target=module.website.google_cloud_run_service.website -auto-approve
         env:
-          TF_VAR_app_version: ${{ needs.build-and-push.outputs.version }}
+          TF_VAR_website_app_version: ${{ needs.build-and-push.outputs.version }}
