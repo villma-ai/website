@@ -74,7 +74,7 @@ jobs:
           -target=module.website.google_cloud_run_service.website \
           -out=tfplan
       env:
-        TF_VAR_app_version: ${{ github.event.inputs.deploy_version }}
+        TF_VAR_website_app_version: ${{ github.event.inputs.deploy_version }}
 
     - name: Upload Plan Artifact
       uses: actions/upload-artifact@v4
@@ -86,7 +86,7 @@ jobs:
     - name: Terraform Apply
       run: terraform apply -target=module.website.google_cloud_run_service.website -auto-approve
       env:
-        TF_VAR_app_version: ${{ github.event.inputs.deploy_version }}
+        TF_VAR_website_app_version: ${{ github.event.inputs.deploy_version }}
 
     - name: Print deployment summary
       run: |
