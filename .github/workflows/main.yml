@@ -6,6 +6,7 @@ on:
       - main
       - develop
       - feature/*
+      - bugfix/*
       - hotfix/*
       - release/*
   pull_request:
@@ -13,6 +14,7 @@ on:
       - main
       - develop
       - feature/*
+      - bugfix/*
       - hotfix/*
 
 env:
