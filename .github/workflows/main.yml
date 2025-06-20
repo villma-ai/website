@@ -59,8 +59,8 @@ jobs:
           VERSION="${BASE_VERSION}-${GITHUB_RUN_NUMBER}"
         else
           # For other branches: branch name + short commit hash
-          # Sanitize branch name to be Docker tag compatible (only lowercase letters, numbers, hyphens, underscores)
-          SANITIZED_BRANCH=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9_-]/-/g' | sed 's/--*/-/g' | sed 's/^-//' | sed 's/-$//')
+          # Sanitize branch name to be Docker tag compatible (only lowercase letters and numbers)
+          SANITIZED_BRANCH=$(echo "$BRANCH_NAME" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]//g')
           VERSION="${SANITIZED_BRANCH}-${COMMIT_HASH}"
         fi
         
