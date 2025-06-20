@@ -2,6 +2,8 @@ import React from 'react';
 import PricingCards from '@/components/PricingCards';
 import pricingData from '@/data/pricing.json';
 import { Metadata } from 'next';
+import { getSubscriptionPlans } from '@/lib/firestore';
+import { SubscriptionPlan } from '@/types/subscriptionPlan';
 
 export const metadata: Metadata = {
   title: pricingData.seo.title,
@@ -19,7 +21,17 @@ export const metadata: Metadata = {
   }
 };
 
-const PricingPage = () => {
+function groupPlansByBillingCycle(plans: SubscriptionPlan[]) {
+  return {
+    monthly: plans.filter((plan) => plan.billingCycle === 'monthly'),
+    yearly: plans.filter((plan) => plan.billingCycle === 'yearly')
+  };
+}
+
+const PricingPage = async () => {
+  const plans = await getSubscriptionPlans();
+  const groupedPlans = groupPlansByBillingCycle(plans);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-white dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -33,7 +45,7 @@ const PricingPage = () => {
           </p>
         </div>
 
-        <PricingCards />
+        <PricingCards groupedPlans={groupedPlans} />
 
         {/* Money Back Guarantee */}
         <div className="mt-16 text-center">
