@@ -14,8 +14,7 @@ on:
         type: choice
         options:
           - dev
-          - staging
-          - prod
+          - prd
 
 env:
   GOOGLE_REGION: us-central1
