@@ -28,8 +28,80 @@ function groupPlansByBillingCycle(plans: SubscriptionPlan[]) {
   };
 }
 
+// Fallback pricing plans for when Firebase is not available
+const fallbackPlans: SubscriptionPlan[] = [
+  {
+    id: 'base-monthly',
+    name: 'BASE',
+    description: 'Perfect for small businesses starting with AI automation',
+    price: 299,
+    billingCycle: 'monthly',
+    features: [
+      'Up to 1,000 conversations per month',
+      'Basic AI agent setup',
+      'Email support',
+      'Standard integrations'
+    ]
+  },
+  {
+    id: 'base-yearly',
+    name: 'BASE',
+    description: 'Perfect for small businesses starting with AI automation',
+    price: 2990,
+    billingCycle: 'yearly',
+    features: [
+      'Up to 1,000 conversations per month',
+      'Basic AI agent setup',
+      'Email support',
+      'Standard integrations',
+      '2 months free'
+    ]
+  },
+  {
+    id: 'extra-monthly',
+    name: 'EXTRA',
+    description: 'Advanced features for growing businesses',
+    price: 599,
+    billingCycle: 'monthly',
+    features: [
+      'Up to 5,000 conversations per month',
+      'Advanced AI agent configuration',
+      'Priority support',
+      'Custom integrations',
+      'Analytics dashboard'
+    ]
+  },
+  {
+    id: 'extra-yearly',
+    name: 'EXTRA',
+    description: 'Advanced features for growing businesses',
+    price: 5990,
+    billingCycle: 'yearly',
+    features: [
+      'Up to 5,000 conversations per month',
+      'Advanced AI agent configuration',
+      'Priority support',
+      'Custom integrations',
+      'Analytics dashboard',
+      '2 months free'
+    ]
+  }
+];
+
 const PricingPage = async () => {
-  const plans = await getSubscriptionPlans();
+  let plans: SubscriptionPlan[];
+  
+  try {
+    plans = await getSubscriptionPlans();
+    // If no plans are returned (Firebase not available), use fallback
+    if (plans.length === 0) {
+      plans = fallbackPlans;
+    }
+  } catch (error) {
+    console.warn('Error fetching subscription plans, using fallback:', error);
+    plans = fallbackPlans;
+  }
+  
   const groupedPlans = groupPlansByBillingCycle(plans);
 
   return (

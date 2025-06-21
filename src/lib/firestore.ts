@@ -26,11 +26,22 @@ function convertTimestamps(data: Record<string, unknown>): Record<string, unknow
 
 // Subscription Plan Functions
 export async function getSubscriptionPlans(): Promise<SubscriptionPlan[]> {
-  const plansRef = collection(db, 'subscriptionPlans');
-  const plansSnap = await getDocs(plansRef);
+  // Check if Firebase is initialized
+  if (!db) {
+    console.warn('Firebase is not initialized. Returning empty subscription plans.');
+    return [];
+  }
 
-  return plansSnap.docs.map(doc => ({
-    id: doc.id,
-    ...convertTimestamps(doc.data())
-  })) as unknown as SubscriptionPlan[];
+  try {
+    const plansRef = collection(db, 'subscriptionPlans');
+    const plansSnap = await getDocs(plansRef);
+
+    return plansSnap.docs.map(doc => ({
+      id: doc.id,
+      ...convertTimestamps(doc.data())
+    })) as unknown as SubscriptionPlan[];
+  } catch (error) {
+    console.error('Error fetching subscription plans:', error);
+    return [];
+  }
 }

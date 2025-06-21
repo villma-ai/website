@@ -14,16 +14,6 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
-# Add Firebase environment variables for build time
-# These can be overridden at runtime
-ENV NEXT_PUBLIC_FIREBASE_API_KEY="dummy-api-key"
-ENV NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="dummy-project.firebaseapp.com"
-ENV NEXT_PUBLIC_FIREBASE_PROJECT_ID="dummy-project"
-ENV NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="dummy-project.appspot.com"
-ENV NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="123456789"
-ENV NEXT_PUBLIC_FIREBASE_APP_ID="1:123456789:web:abcdef"
-ENV NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID="G-XXXXXXXXXX"
-
 RUN npm run build
 
 FROM base AS runner
