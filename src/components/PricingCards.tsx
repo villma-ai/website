@@ -18,9 +18,24 @@ const tabLabels = [
   { key: 'yearly', label: 'Yearly' }
 ];
 
+// Utility function to get the correct URL based on environment
+const getCustomerAppUrl = (): string => {
+  if (typeof window !== 'undefined') {
+    // Client-side: check if we're on localhost or dev domain
+    const hostname = window.location.hostname;
+    if (hostname === 'localhost' || hostname.includes('dev.')) {
+      return 'https://dev.myagent.villma.ai';
+    }
+  }
+  
+  // Server-side or production: use production URL
+  return 'https://myagent.villma.ai';
+};
+
 const PricingCards: React.FC<PricingCardsProps> = ({ groupedPlans }) => {
   const [activeTab, setActiveTab] = useState<'monthly' | 'yearly'>('monthly');
   const plans = groupedPlans[activeTab];
+  const customerAppUrl = getCustomerAppUrl();
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -90,7 +105,7 @@ const PricingCards: React.FC<PricingCardsProps> = ({ groupedPlans }) => {
                 </ul>
 
                 <a
-                  href="https://myagent.villma.ai"
+                  href={customerAppUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-pink-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-pink-600 transition-colors text-center"
