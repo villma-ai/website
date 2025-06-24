@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
+    "@villma/villma-ts-shared": "^1.0.0",
     "clsx": "^2.1.1",
     "firebase": "^11.9.1",
     "next": "15.1.8",

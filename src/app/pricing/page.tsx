@@ -3,7 +3,7 @@ import PricingCards from '@/components/PricingCards';
 import pricingData from '@/data/pricing.json';
 import { Metadata } from 'next';
 import { getSubscriptionPlans } from '@/lib/firestore';
-import { SubscriptionPlan } from '@/types/subscriptionPlan';
+import { SubscriptionPlan } from '@villma/villma-ts-shared';
 
 export const metadata: Metadata = {
   title: pricingData.seo.title,

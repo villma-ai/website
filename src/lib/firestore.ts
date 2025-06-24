@@ -4,7 +4,7 @@ import {
   Timestamp
 } from 'firebase/firestore';
 import { db } from './firebase';
-import { SubscriptionPlan } from '@/types/subscriptionPlan';
+import { SubscriptionPlan } from '@villma/villma-ts-shared';
 
 // Utility function to convert Firestore Timestamps to Date objects
 function convertTimestamps(data: Record<string, unknown>): Record<string, unknown> {
