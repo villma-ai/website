@@ -1,6 +1,6 @@
 import React from 'react';
 import PricingCards from '@/components/PricingCards';
-import pricingData from '@/data/pricing.json';
+import pricingData from '@/data/pricing/content.json';
 import { Metadata } from 'next';
 import { getSubscriptionPlans } from '@/lib/firestore';
 import { SubscriptionPlan } from '@villma/villma-ts-shared';
