@@ -68,13 +68,43 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
+    
+    // Additional client-side validation
+    if (!data.name || !data.email || !data.message || data.requestReasons.length === 0) {
+      toast.error('Please fill in all required fields.');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      // Here you would typically send the data to your backend
-      console.log('Form data:', data);
-      toast.success('Message sent successfully!');
-      reset();
-    } catch {
-      toast.error('Failed to send message. Please try again.');
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name.trim(),
+          email: data.email.trim(),
+          phone: data.phone?.trim() || '',
+          company: data.company?.trim() || '',
+          message: data.message.trim(),
+          requestReasons: data.requestReasons
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        toast.success('Message sent successfully! We\'ll get back to you soon.');
+        reset();
+      } else {
+        console.error('Contact form error:', result);
+        const errorMessage = result.error || 'Failed to send message. Please try again.';
+        toast.error(errorMessage);
+      }
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      toast.error('Network error. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -271,10 +301,32 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className={`w-full bg-sky-600 text-white py-2 px-4 rounded-md hover:bg-sky-700 transition-colors ${
+          className={`w-full bg-sky-600 text-white py-2 px-4 rounded-md hover:bg-sky-700 transition-colors flex items-center justify-center ${
             isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
           }`}
         >
+          {isSubmitting && (
+            <svg
+              className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          )}
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </div>
