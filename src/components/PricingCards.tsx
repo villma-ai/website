@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import pricingData from '@/data/pricing.json';
+import pricingData from '@/data/pricing/content.json';
 import { SubscriptionPlan } from '@villma/villma-ts-shared';
 
 interface GroupedPlans {
