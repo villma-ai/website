@@ -5,6 +5,9 @@ import { Metadata } from 'next';
 import { getSubscriptionPlans } from '@/lib/firestore';
 import { SubscriptionPlan } from '@villma/villma-ts-shared';
 
+// Force dynamic rendering since this page uses Firebase data fetching
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: pricingData.seo.title,
   description: pricingData.seo.description,

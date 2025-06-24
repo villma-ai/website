@@ -26,10 +26,6 @@ yarn-error.log*
 # Vercel
 .vercel
 
-# TypeScript
-*.tsbuildinfo
-next-env.d.ts
-
 # IDE
 .vscode/
 .idea/
@@ -94,4 +90,4 @@ jspm_packages/
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
-.pnp.* 
+.pnp.*
