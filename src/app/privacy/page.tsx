@@ -59,6 +59,7 @@ const PrivacyPage = () => {
                 <li>Name</li>
                 <li>Email address</li>
                 <li>Company name (if provided)</li>
+                <li>Phone number (if provided)</li>
                 <li>Message content</li>
               </ul>
               <p className="text-gray-600 dark:text-gray-300">

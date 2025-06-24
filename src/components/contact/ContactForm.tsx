@@ -251,6 +251,7 @@ export default function ContactForm() {
               <Link
                 href="/privacy"
                 className="text-sky-600 hover:text-sky-700 underline"
+                target="_blank"
               >
                 Privacy Policy
               </Link>{' '}
