@@ -3,7 +3,7 @@ import {
   getDocs,
   Timestamp
 } from 'firebase/firestore';
-import { db } from './firebase';
+import { getFirebaseDb } from './firebase';
 import { SubscriptionPlan } from '@villma/villma-ts-shared';
 
 // Utility function to convert Firestore Timestamps to Date objects
@@ -26,6 +26,7 @@ function convertTimestamps(data: Record<string, unknown>): Record<string, unknow
 
 // Subscription Plan Functions
 export async function getSubscriptionPlans(): Promise<SubscriptionPlan[]> {
+  const db = getFirebaseDb();
   const plansRef = collection(db, 'subscriptionPlans');
   const plansSnap = await getDocs(plansRef);
 

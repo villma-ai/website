@@ -1,6 +1,6 @@
 'server only';
 
-import { initializeApp } from 'firebase/app';
+import { initializeApp, getApps } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
@@ -14,13 +14,25 @@ const firebaseConfig = {
   measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// Initialize Firebase only if it hasn't been initialized
+function initializeFirebase() {
+  if (getApps().length === 0) {
+    return initializeApp(firebaseConfig);
+  }
+  return getApps()[0];
+}
 
-// Initialize Firebase Authentication and get a reference to the service
-export const auth = getAuth(app);
+// Get Firebase instances
+export function getFirebaseApp() {
+  return initializeFirebase();
+}
 
-// Initialize Cloud Firestore and get a reference to the service
-export const db = getFirestore(app);
+export function getFirebaseAuth() {
+  const app = getFirebaseApp();
+  return getAuth(app);
+}
 
-export default app; 
+export function getFirebaseDb() {
+  const app = getFirebaseApp();
+  return getFirestore(app);
+}
