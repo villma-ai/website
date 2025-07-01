@@ -35,3 +35,5 @@ export async function getSubscriptionPlans(): Promise<SubscriptionPlan[]> {
     ...convertTimestamps(doc.data())
   })) as unknown as SubscriptionPlan[];
 }
+
+export const db = getFirebaseDb();
