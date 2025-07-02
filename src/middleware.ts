@@ -1,13 +1,11 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(request: NextRequest) {
-  const showTeaser = process.env.NEXT_PUBLIC_SHOW_TEASER === 'true';
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Allow teaser and privacy pages, static files, and API routes
   if (
-    !showTeaser ||
     pathname.startsWith('/teaser') ||
     pathname.startsWith('/privacy') ||
     pathname.startsWith('/_next') ||
@@ -17,6 +15,23 @@ export function middleware(request: NextRequest) {
     pathname.startsWith('/sitemap') ||
     pathname.match(/\.[a-zA-Z0-9]+$/) // static files
   ) {
+    return NextResponse.next();
+  }
+
+  // Fetch the showTeaser setting from the API route
+  let showTeaser = false;
+  try {
+    const res = await fetch(`${request.nextUrl.origin}/api/teaser-gate`, { next: { revalidate: 0 } });
+    if (res.ok) {
+      const data = await res.json();
+      showTeaser = data.showTeaser === true;
+    }
+  } catch {
+    // If the API fails, default to not showing the teaser
+    showTeaser = false;
+  }
+
+  if (!showTeaser) {
     return NextResponse.next();
   }
 
