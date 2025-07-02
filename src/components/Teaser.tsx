@@ -2,31 +2,52 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import content from '@/data/hp/content.json';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import Link from 'next/link';
+
+// Define Zod schema for validation
+const formSchema = z.object({
+  email: z.string().email('Invalid email address'),
+  privacyConsent: z.boolean().refine((val) => val === true, {
+    message: 'You must agree to our privacy policy',
+  }),
+});
+type FormData = z.infer<typeof formSchema>;
 
 export default function Teaser() {
-  const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+    defaultValues: { privacyConsent: false },
+  });
+
+  const onSubmit = async (data: FormData) => {
     setLoading(true);
-    setError("");
     try {
-      const res = await fetch("/api/teaser-signup", {
-        method: "POST",
-        body: JSON.stringify({ email }),
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/teaser-signup', {
+        method: 'POST',
+        body: JSON.stringify({ email: data.email }),
+        headers: { 'Content-Type': 'application/json' },
       });
-      const data = await res.json();
-      if (data.success) {
+      const result = await res.json();
+      if (result.success) {
         setSubmitted(true);
+        reset();
       } else {
-        setError(data.error || "Something went wrong");
+        // Show error from API
+        alert(result.error || 'Something went wrong');
       }
     } catch {
-      setError("Network error");
+      alert('Network error');
     } finally {
       setLoading(false);
     }
@@ -66,24 +87,40 @@ export default function Teaser() {
         {submitted ? (
           <div className="text-green-600 text-center font-semibold">{content.teaser.successMessage}</div>
         ) : (
-          <form onSubmit={handleSubmit} className="flex flex-col items-center gap-2 w-full max-w-xs">
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center gap-2 w-full max-w-xs">
             <input
               type="email"
               required
               placeholder={content.teaser.inputPlaceholder}
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              className="border px-3 py-2 rounded w-full"
+              {...register('email')}
+              className={`border px-3 py-2 rounded w-full ${errors.email ? 'border-red-500' : ''}`}
               disabled={loading}
             />
+            {errors.email && <div className="text-red-600 text-sm mt-1">{errors.email.message as string}</div>}
+            <div className="flex items-start mt-2 w-full">
+              <input
+                type="checkbox"
+                id="privacyConsent"
+                {...register('privacyConsent')}
+                className="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-500 mt-1"
+                disabled={loading}
+              />
+              <label htmlFor="privacyConsent" className="ml-2 text-sm text-gray-700 cursor-pointer">
+                I agree to the{' '}
+                <Link href="/privacy" className="text-sky-600 hover:text-sky-700 underline" target="_blank">
+                  Privacy Policy
+                </Link>{' '}
+                and consent to the processing of my personal data for the purpose of responding to my inquiry.
+              </label>
+            </div>
+            {errors.privacyConsent && <div className="text-red-600 text-sm mt-1">{errors.privacyConsent.message as string}</div>}
             <button
               type="submit"
               className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded w-full font-bold shadow-md transition-colors"
               disabled={loading}
             >
-              {loading ? "Sending..." : content.teaser.buttonText}
+              {loading ? 'Sending...' : content.teaser.buttonText}
             </button>
-            {error && <div className="text-red-600 text-sm mt-2">{content.teaser.errorMessage}</div>}
           </form>
         )}
       </div>

@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ThemeProvider } from '../context/ThemeContext';
 import { Toaster } from 'react-hot-toast';
-import Teaser from '../components/Teaser';
+import TeaserSwitch from '../components/TeaserSwitch';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -52,50 +52,40 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const showTeaser = process.env.SHOW_TEASER === 'true';
-  if (showTeaser) {
-    return (
-      <html lang="en">
-        <body className="antialiased">
-          <Teaser />
-        </body>
-      </html>
-    );
-  }
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased pt-16`}
-      >
-        <ThemeProvider>
-          <Header />
-          {children}
-          <Footer />
-          <Toaster 
-            position="top-right"
-            toastOptions={{
-              duration: 4000,
-              style: {
-                background: '#363636',
-                color: '#fff',
-              },
-              success: {
-                duration: 5000,
-                iconTheme: {
-                  primary: '#10b981',
-                  secondary: '#fff',
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <TeaserSwitch>
+          <ThemeProvider>
+            <Header />
+            {children}
+            <Footer />
+            <Toaster 
+              position="top-right"
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: '#363636',
+                  color: '#fff',
                 },
-              },
-              error: {
-                duration: 6000,
-                iconTheme: {
-                  primary: '#ef4444',
-                  secondary: '#fff',
+                success: {
+                  duration: 5000,
+                  iconTheme: {
+                    primary: '#10b981',
+                    secondary: '#fff',
+                  },
                 },
-              },
-            }}
-          />
-        </ThemeProvider>
+                error: {
+                  duration: 6000,
+                  iconTheme: {
+                    primary: '#ef4444',
+                    secondary: '#fff',
+                  },
+                },
+              }}
+            />
+          </ThemeProvider>
+        </TeaserSwitch>
       </body>
     </html>
   );
