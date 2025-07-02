@@ -21,8 +21,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setTheme(storedTheme);
     } else {
       // If no stored theme, check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)')
-        .matches;
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       setTheme(prefersDark ? 'dark' : 'light');
     }
   }, []);
@@ -38,11 +37,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

@@ -40,11 +40,19 @@ export async function POST(request: Request) {
     try {
       gmailConfig = validateGmailConfig();
     } catch (error) {
-      console.error('Gmail configuration error:', error instanceof Error ? error.message : 'Unknown error');
+      console.error(
+        'Gmail configuration error:',
+        error instanceof Error ? error.message : 'Unknown error'
+      );
       return NextResponse.json(
         {
           error: 'Email service configuration error',
-          details: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.message : 'Unknown error') : undefined
+          details:
+            process.env.NODE_ENV === 'development'
+              ? error instanceof Error
+                ? error.message
+                : 'Unknown error'
+              : undefined
         },
         { status: 500 }
       );
@@ -57,8 +65,8 @@ export async function POST(request: Request) {
       secure: false, // true for 465, false for other ports
       auth: {
         user: gmailConfig.gmailUser,
-        pass: gmailConfig.gmailPassword,
-      },
+        pass: gmailConfig.gmailPassword
+      }
     });
 
     // Verify transporter configuration
@@ -69,16 +77,16 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error: 'Email service configuration error',
-          details: process.env.NODE_ENV === 'development' ? 'Failed to verify Gmail connection' : undefined
+          details:
+            process.env.NODE_ENV === 'development' ? 'Failed to verify Gmail connection' : undefined
         },
         { status: 500 }
       );
     }
 
     // Format request reasons for display
-    const reasonsText = requestReasons && requestReasons.length > 0
-      ? requestReasons.join(', ')
-      : 'Not specified';
+    const reasonsText =
+      requestReasons && requestReasons.length > 0 ? requestReasons.join(', ') : 'Not specified';
 
     // Email content
     const mailOptions = {
@@ -102,7 +110,7 @@ Message: ${message}
 <p><strong>Request Reasons:</strong> ${reasonsText}</p>
 <p><strong>Message:</strong></p>
 <p>${message}</p>
-      `,
+      `
     };
 
     // Send email
@@ -121,7 +129,12 @@ Message: ${message}
     return NextResponse.json(
       {
         error: 'Failed to send email',
-        details: process.env.NODE_ENV === 'development' ? (error instanceof Error ? error.message : 'Unknown error') : undefined,
+        details:
+          process.env.NODE_ENV === 'development'
+            ? error instanceof Error
+              ? error.message
+              : 'Unknown error'
+            : undefined,
         timestamp: new Date().toISOString()
       },
       { status: 500 }

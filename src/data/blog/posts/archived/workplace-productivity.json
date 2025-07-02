@@ -12,7 +12,14 @@
   "seo": {
     "title": "Boost Workplace Productivity with AI Solutions | Villma.ai",
     "description": "Discover how AI-powered tools can transform your workplace productivity. Learn practical strategies and solutions for implementing AI in your business operations.",
-    "keywords": ["workplace productivity", "AI solutions", "business efficiency", "productivity tools", "AI automation", "workplace optimization"],
+    "keywords": [
+      "workplace productivity",
+      "AI solutions",
+      "business efficiency",
+      "productivity tools",
+      "AI automation",
+      "workplace optimization"
+    ],
     "ogImage": "/blog/workplace-productivity.png",
     "ogTitle": "AI-Powered Workplace Productivity Solutions",
     "ogDescription": "Learn how AI tools can enhance your workplace productivity and streamline business operations.",
@@ -20,4 +27,4 @@
     "twitterTitle": "AI Solutions for Workplace Productivity",
     "twitterDescription": "Discover how AI can boost your workplace productivity and efficiency."
   }
-} 
+}

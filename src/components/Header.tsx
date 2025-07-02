@@ -36,9 +36,7 @@ const Header: React.FC = () => {
               priority
             />
           </Link>
-          <h2 className="font-semibold text-xl text-white">
-            AI Multi-Agent Development Agency
-          </h2>
+          <h2 className="font-semibold text-xl text-white">AI Multi-Agent Development Agency</h2>
         </div>
 
         {/* Mobile menu button */}
@@ -59,11 +57,7 @@ const Header: React.FC = () => {
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
-              d={
-                isMobileMenuOpen
-                  ? 'M6 18L18 6M6 6l12 12'
-                  : 'M4 6h16M4 12h16M4 18h16'
-              }
+              d={isMobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
             ></path>
           </svg>
         </button>
@@ -77,10 +71,7 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link
-                href="/about"
-                className={`transition-colors ${isActive('/about')}`}
-              >
+              <Link href="/about" className={`transition-colors ${isActive('/about')}`}>
                 About
               </Link>
             </li>
@@ -95,26 +86,17 @@ const Header: React.FC = () => {
               </a>
             </li>
             <li>
-              <Link
-                href="/blog"
-                className={`transition-colors ${isActive('/blog')}`}
-              >
+              <Link href="/blog" className={`transition-colors ${isActive('/blog')}`}>
                 Blog
               </Link>
             </li>
             <li>
-              <Link
-                href="/pricing"
-                className={`transition-colors ${isActive('/pricing')}`}
-              >
+              <Link href="/pricing" className={`transition-colors ${isActive('/pricing')}`}>
                 Pricing
               </Link>
             </li>
             <li>
-              <Link
-                href="/contacts"
-                className={`transition-colors ${isActive('/contacts')}`}
-              >
+              <Link href="/contacts" className={`transition-colors ${isActive('/contacts')}`}>
                 Contacts
               </Link>
             </li>
@@ -163,9 +145,7 @@ const Header: React.FC = () => {
         {/* Mobile Navigation */}
         <div
           className={`fixed inset-0 bg-[#1a202c] bg-opacity-95 transition-opacity duration-300 ease-in-out md:hidden ${
-            isMobileMenuOpen
-              ? 'opacity-100 z-40'
-              : 'opacity-0 pointer-events-none'
+            isMobileMenuOpen ? 'opacity-100 z-40' : 'opacity-0 pointer-events-none'
           }`}
         >
           <nav className="h-full flex items-center justify-center">
@@ -232,9 +212,7 @@ const Header: React.FC = () => {
                     toggleMobileMenu();
                   }}
                   className="flex items-center space-x-2 text-gray-100 hover:text-pink-500 transition-colors"
-                  aria-label={`Switch to ${
-                    theme === 'light' ? 'dark' : 'light'
-                  } mode`}
+                  aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
                 >
                   <span>Theme</span>
                   {theme === 'light' ? (

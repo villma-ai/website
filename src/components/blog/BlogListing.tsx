@@ -22,14 +22,9 @@ export default function BlogListing({ posts, categories }: BlogListingProps) {
   const filteredPosts =
     selectedCategory === 'all'
       ? posts
-      : posts.filter(
-          (post) =>
-            post.category.toLowerCase() === selectedCategory.toLowerCase()
-        );
+      : posts.filter((post) => post.category.toLowerCase() === selectedCategory.toLowerCase());
 
-  filteredPosts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  filteredPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -81,16 +76,12 @@ export default function BlogListing({ posts, categories }: BlogListingProps) {
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-sm text-sky-600">{post.category}</span>
                   <span className="text-slate-400">•</span>
-                  <span className="text-sm text-slate-500">
-                    {post.readTime}
-                  </span>
+                  <span className="text-sm text-slate-500">{post.readTime}</span>
                 </div>
                 <h2 className="text-xl font-semibold text-slate-800 group-hover:text-sky-600 transition-colors mb-2">
                   {post.title}
                 </h2>
-                <p className="text-slate-600 line-clamp-2">
-                  {post.description}
-                </p>
+                <p className="text-slate-600 line-clamp-2">{post.description}</p>
               </div>
             </article>
           </Link>

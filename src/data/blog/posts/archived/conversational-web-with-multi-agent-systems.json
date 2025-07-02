@@ -4,7 +4,16 @@
   "description": "Discover how Multi-Agent Systems are transforming websites into interactive platforms with AI agents, enabling real-time dialogues and personalized experiences.",
   "date": "2024-01-30",
   "author": "Villma Team",
-  "tags": ["Multi-Agent Systems", "AI Agents", "Conversational Web", "Personalized Experiences", "Customer Engagement", "E-commerce", "Healthcare", "Financial Services"],
+  "tags": [
+    "Multi-Agent Systems",
+    "AI Agents",
+    "Conversational Web",
+    "Personalized Experiences",
+    "Customer Engagement",
+    "E-commerce",
+    "Healthcare",
+    "Financial Services"
+  ],
   "category": "Trends & Thought Leadership",
   "image": "/blog/placeholder.png",
   "content": "**Traditional websites often feel silent.** Multi-Agent Systems are transforming platforms, creating a \"conversational web\" with AI agents enabling real-time dialogue and personalized experiences.\n\n**Imagine websites conversing with you,** instantly understanding your needs. AI agents drive this innovation, facilitating dynamic interactions and providing intuitive assistance.\n\n**Consider an e-commerce site** where a virtual assistant learns your preferences, suggesting items and streamlining buying. This boosts sales and satisfaction. **Or a healthcare platform** where an AI agent provides instant advice, guiding patients and scheduling appointments, improving health outcomes. **Think of a financial services page** where an AI consultant offers customized planning, helping users make informed decisions.\n\n**More than convenience,** this revolution deepens business-customer relationships. Multi-Agent Systems turn websites into interactive partners.\n\n**Is your website missing engagement?** Unlock the conversational web's potential and transform interactions into dialogues. Embrace Multi-Agent Systems for a more engaging, personalized online presence.",
@@ -12,7 +21,16 @@
   "seo": {
     "title": "Unlock the Conversational Web with Multi-Agent Systems",
     "description": "Discover how Multi-Agent Systems are transforming websites into interactive platforms with AI agents, enabling real-time dialogues and personalized experiences.",
-    "keywords": ["Multi-Agent Systems", "AI Agents", "Conversational Web", "Personalized Experiences", "Customer Engagement", "E-commerce", "Healthcare", "Financial Services"],
+    "keywords": [
+      "Multi-Agent Systems",
+      "AI Agents",
+      "Conversational Web",
+      "Personalized Experiences",
+      "Customer Engagement",
+      "E-commerce",
+      "Healthcare",
+      "Financial Services"
+    ],
     "ogImage": "/blog/placeholder.png",
     "ogTitle": "Transform Your Website: The Conversational Web Revolution with AI",
     "ogDescription": "Learn how Multi-Agent Systems and AI agents create dynamic, personalized website experiences that boost engagement and customer satisfaction.",

@@ -40,9 +40,7 @@ const formSchema = z.object({
   phone: z.string().optional(),
   company: z.string().optional(),
   message: z.string().min(10, 'Message must be at least 10 characters'),
-  requestReasons: z
-    .array(z.string())
-    .min(1, 'Please select at least one option'),
+  requestReasons: z.array(z.string()).min(1, 'Please select at least one option'),
   privacyConsent: z.boolean().refine((val) => val === true, {
     message: 'You must agree to our privacy policy'
   })
@@ -68,7 +66,7 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    
+
     // Additional client-side validation
     if (!data.name || !data.email || !data.message || data.requestReasons.length === 0) {
       toast.error('Please fill in all required fields.');
@@ -80,7 +78,7 @@ export default function ContactForm() {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           name: data.name.trim(),
@@ -89,13 +87,13 @@ export default function ContactForm() {
           company: data.company?.trim() || '',
           message: data.message.trim(),
           requestReasons: data.requestReasons
-        }),
+        })
       });
 
       const result = await response.json();
 
       if (response.ok) {
-        toast.success('Message sent successfully! We\'ll get back to you soon.');
+        toast.success("Message sent successfully! We'll get back to you soon.");
         reset();
       } else {
         console.error('Contact form error:', result);
@@ -111,16 +109,10 @@ export default function ContactForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="max-w-lg mx-auto space-y-6"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="max-w-lg mx-auto space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
             Name *
           </label>
           <input
@@ -131,16 +123,11 @@ export default function ContactForm() {
               errors.name ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent`}
           />
-          {errors.name && (
-            <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
-          )}
+          {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>}
         </div>
 
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
             Email *
           </label>
           <input
@@ -151,16 +138,11 @@ export default function ContactForm() {
               errors.email ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent`}
           />
-          {errors.email && (
-            <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
-          )}
+          {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
         </div>
 
         <div>
-          <label
-            htmlFor="phone"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
             Phone
           </label>
           <input
@@ -171,16 +153,11 @@ export default function ContactForm() {
               errors.phone ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent`}
           />
-          {errors.phone && (
-            <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>
-          )}
+          {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>}
         </div>
 
         <div>
-          <label
-            htmlFor="company"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
+          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
             Company
           </label>
           <input
@@ -191,11 +168,7 @@ export default function ContactForm() {
               errors.company ? 'border-red-500' : 'border-gray-300'
             } focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent`}
           />
-          {errors.company && (
-            <p className="mt-1 text-sm text-red-500">
-              {errors.company.message}
-            </p>
-          )}
+          {errors.company && <p className="mt-1 text-sm text-red-500">{errors.company.message}</p>}
         </div>
       </div>
 
@@ -236,17 +209,12 @@ export default function ContactForm() {
           ))}
         </div>
         {errors.requestReasons && (
-          <p className="mt-1 text-sm text-red-500">
-            {errors.requestReasons.message}
-          </p>
+          <p className="mt-1 text-sm text-red-500">{errors.requestReasons.message}</p>
         )}
       </div>
 
       <div>
-        <label
-          htmlFor="message"
-          className="block text-sm font-medium text-gray-700 mb-1"
-        >
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
           Message *
         </label>
         <textarea
@@ -257,9 +225,7 @@ export default function ContactForm() {
             errors.message ? 'border-red-500' : 'border-gray-300'
           } focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent`}
         />
-        {errors.message && (
-          <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
-        )}
+        {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>}
       </div>
 
       <div>
@@ -273,10 +239,7 @@ export default function ContactForm() {
             />
           </div>
           <div className="ml-3">
-            <label
-              htmlFor="privacyConsent"
-              className="text-sm text-gray-700 cursor-pointer"
-            >
+            <label htmlFor="privacyConsent" className="text-sm text-gray-700 cursor-pointer">
               I agree to the{' '}
               <Link
                 href="/privacy"
@@ -285,15 +248,13 @@ export default function ContactForm() {
               >
                 Privacy Policy
               </Link>{' '}
-              and consent to the processing of my personal data for the purpose
-              of responding to my inquiry.
+              and consent to the processing of my personal data for the purpose of responding to my
+              inquiry.
             </label>
           </div>
         </div>
         {errors.privacyConsent && (
-          <p className="mt-1 text-sm text-red-500">
-            {errors.privacyConsent.message}
-          </p>
+          <p className="mt-1 text-sm text-red-500">{errors.privacyConsent.message}</p>
         )}
       </div>
 

@@ -1,6 +1,6 @@
-"use client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
+'use client';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import content from '@/data/hp/content.json';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -11,8 +11,8 @@ import Link from 'next/link';
 const formSchema = z.object({
   email: z.string().email('Invalid email address'),
   privacyConsent: z.boolean().refine((val) => val === true, {
-    message: 'You must agree to our privacy policy',
-  }),
+    message: 'You must agree to our privacy policy'
+  })
 });
 type FormData = z.infer<typeof formSchema>;
 
@@ -24,10 +24,10 @@ export default function Teaser() {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
+    reset
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
-    defaultValues: { privacyConsent: false },
+    defaultValues: { privacyConsent: false }
   });
 
   const onSubmit = async (data: FormData) => {
@@ -36,7 +36,7 @@ export default function Teaser() {
       const res = await fetch('/api/teaser-signup', {
         method: 'POST',
         body: JSON.stringify({ email: data.email }),
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' }
       });
       const result = await res.json();
       if (result.success) {
@@ -80,14 +80,25 @@ export default function Teaser() {
             priority
           />
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold mb-2 text-center text-sky-700 drop-shadow-lg">{content.teaser.title}</h1>
-        <p className="mb-6 text-lg text-center text-gray-700 font-medium">{content.teaser.subtitle}</p>
-        <h2 className="text-xl md:text-2xl font-bold mb-2 text-center text-pink-600">{content.teaser.formTitle}</h2>
+        <h1 className="text-3xl md:text-4xl font-extrabold mb-2 text-center text-sky-700 drop-shadow-lg">
+          {content.teaser.title}
+        </h1>
+        <p className="mb-6 text-lg text-center text-gray-700 font-medium">
+          {content.teaser.subtitle}
+        </p>
+        <h2 className="text-xl md:text-2xl font-bold mb-2 text-center text-pink-600">
+          {content.teaser.formTitle}
+        </h2>
         <p className="mb-6 text-center text-gray-600">{content.teaser.formDescription}</p>
         {submitted ? (
-          <div className="text-green-600 text-center font-semibold">{content.teaser.successMessage}</div>
+          <div className="text-green-600 text-center font-semibold">
+            {content.teaser.successMessage}
+          </div>
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-center gap-2 w-full max-w-xs">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col items-center gap-2 w-full max-w-xs"
+          >
             <input
               type="email"
               required
@@ -96,7 +107,9 @@ export default function Teaser() {
               className={`border px-3 py-2 rounded w-full ${errors.email ? 'border-red-500' : ''} focus:outline-none focus:ring-2 focus:ring-sky-500`}
               disabled={loading}
             />
-            {errors.email && <div className="text-red-600 text-sm mt-1">{errors.email.message as string}</div>}
+            {errors.email && (
+              <div className="text-red-600 text-sm mt-1">{errors.email.message as string}</div>
+            )}
             <div className="flex items-start mt-2 w-full">
               <input
                 type="checkbox"
@@ -107,13 +120,22 @@ export default function Teaser() {
               />
               <label htmlFor="privacyConsent" className="ml-2 text-sm text-gray-700 cursor-pointer">
                 I agree to the{' '}
-                <Link href="/privacy" className="text-sky-600 hover:text-sky-700 underline" target="_blank">
+                <Link
+                  href="/privacy"
+                  className="text-sky-600 hover:text-sky-700 underline"
+                  target="_blank"
+                >
                   Privacy Policy
                 </Link>{' '}
-                and consent to the processing of my personal data for the purpose of responding to my inquiry.
+                and consent to the processing of my personal data for the purpose of responding to
+                my inquiry.
               </label>
             </div>
-            {errors.privacyConsent && <div className="text-red-600 text-sm mt-1">{errors.privacyConsent.message as string}</div>}
+            {errors.privacyConsent && (
+              <div className="text-red-600 text-sm mt-1">
+                {errors.privacyConsent.message as string}
+              </div>
+            )}
             <button
               type="submit"
               className="bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded w-full font-bold shadow-md transition-colors"
@@ -126,4 +148,4 @@ export default function Teaser() {
       </div>
     </div>
   );
-} 
+}

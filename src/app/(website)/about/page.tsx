@@ -45,23 +45,14 @@ export default function About() {
           </a>
         </section>
 
-        <section
-          id="foundation"
-          className="py-8 md:py-12 bg-slate-100 rounded-xl my-8"
-        >
+        <section id="foundation" className="py-8 md:py-12 bg-slate-100 rounded-xl my-8">
           <div className="container mx-auto px-4">
-            <h3 className={styles['section-title']}>
-              {content.foundation.title}
-            </h3>
-            <p className={styles['section-subtitle']}>
-              {content.foundation.subtitle}
-            </p>
+            <h3 className={styles['section-title']}>{content.foundation.title}</h3>
+            <p className={styles['section-subtitle']}>{content.foundation.subtitle}</p>
 
             <div className="grid md:grid-cols-2 gap-10 items-center mb-8">
               <div className="bg-white p-8 rounded-xl shadow-lg">
-                <h3 className="text-2xl font-semibold text-slate-800 mb-3">
-                  Decades of Insight
-                </h3>
+                <h3 className="text-2xl font-semibold text-slate-800 mb-3">Decades of Insight</h3>
                 <p className="text-slate-600 leading-relaxed">
                   {content.foundation.experience.text}
                 </p>
@@ -85,21 +76,13 @@ export default function About() {
                   <div
                     key={index}
                     className={`${styles['skill-card']} text-center ${
-                      !skill.description
-                        ? 'flex flex-col justify-center items-center'
-                        : ''
+                      !skill.description ? 'flex flex-col justify-center items-center' : ''
                     }`}
                   >
-                    <div className="text-4xl mb-3 text-sky-500">
-                      {skill.icon}
-                    </div>
-                    <h4 className="text-xl font-semibold text-slate-700 mb-1">
-                      {skill.title}
-                    </h4>
+                    <div className="text-4xl mb-3 text-sky-500">{skill.icon}</div>
+                    <h4 className="text-xl font-semibold text-slate-700 mb-1">{skill.title}</h4>
                     {skill.description && (
-                      <p className="text-sm text-slate-500">
-                        {skill.description}
-                      </p>
+                      <p className="text-sm text-slate-500">{skill.description}</p>
                     )}
                   </div>
                 ))}
@@ -111,9 +94,7 @@ export default function About() {
         <section id="passion" className="py-8 md:py-12 my-8">
           <div className="container mx-auto px-4 text-center">
             <h2 className={styles['section-title']}>{content.passion.title}</h2>
-            <p className={styles['section-subtitle']}>
-              {content.passion.subtitle}
-            </p>
+            <p className={styles['section-subtitle']}>{content.passion.subtitle}</p>
             <div className="bg-white p-8 sm:p-12 rounded-xl shadow-xl max-w-3xl mx-auto">
               <p className="text-lg sm:text-xl text-slate-600 leading-relaxed">
                 {content.passion.description}
@@ -122,33 +103,22 @@ export default function About() {
           </div>
         </section>
 
-        <section
-          id="mission"
-          className="py-8 md:py-12 bg-sky-700 text-white rounded-xl my-8"
-        >
+        <section id="mission" className="py-8 md:py-12 bg-sky-700 text-white rounded-xl my-8">
           <div className="container mx-auto px-4">
-            <h2 className={styles['section-title'] + ' !text-white'}>
-              {content.mission.title}
-            </h2>
+            <h2 className={styles['section-title'] + ' !text-white'}>{content.mission.title}</h2>
             <p className={styles['section-subtitle'] + ' !text-sky-100'}>
               {content.mission.subtitle}
             </p>
             <div className="grid md:grid-cols-2 gap-8 items-stretch">
               <div className="bg-sky-600 p-8 rounded-lg shadow-lg flex flex-col">
-                <div className="text-4xl mb-4">
-                  {content.mission.challenge.icon}
-                </div>
-                <h3 className="text-2xl font-semibold mb-3">
-                  {content.mission.challenge.title}
-                </h3>
+                <div className="text-4xl mb-4">{content.mission.challenge.icon}</div>
+                <h3 className="text-2xl font-semibold mb-3">{content.mission.challenge.title}</h3>
                 <p className="text-sky-50 leading-relaxed flex-grow">
                   {content.mission.challenge.description}
                 </p>
               </div>
               <div className="bg-white text-slate-700 p-8 rounded-lg shadow-lg flex flex-col">
-                <div className="text-4xl mb-4 text-sky-500">
-                  {content.mission.solution.icon}
-                </div>
+                <div className="text-4xl mb-4 text-sky-500">{content.mission.solution.icon}</div>
                 <h3 className="text-2xl font-semibold mb-3 text-slate-800">
                   {content.mission.solution.title}
                 </h3>

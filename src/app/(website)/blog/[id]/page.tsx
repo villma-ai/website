@@ -13,9 +13,7 @@ interface BlogPostPageProps {
 }
 
 // Generate metadata for the page
-export async function generateMetadata({
-  params
-}: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
   const { id } = await params;
   const posts = await getBlogPosts();
   const post = posts.find((p) => p.id === id);
@@ -83,12 +81,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           href="/blog"
           className="inline-flex items-center text-sky-600 hover:text-sky-700 mb-8"
         >
-          <svg
-            className="w-4 h-4 mr-2"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -108,9 +101,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <span className="text-slate-400">•</span>
             <span className="text-sm text-slate-500">{post.date}</span>
           </div>
-          <h1 className="text-4xl font-bold text-slate-800 mb-4">
-            {post.title}
-          </h1>
+          <h1 className="text-4xl font-bold text-slate-800 mb-4">{post.title}</h1>
           <p className="text-xl text-slate-600 mb-6">{post.description}</p>
         </div>
 
@@ -131,9 +122,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             components={{
               hr: () => <hr className="my-6" />,
               h2: ({ children }) => (
-                <h2 className="text-2xl font-bold text-slate-800 mb-4">
-                  {children}
-                </h2>
+                <h2 className="text-2xl font-bold text-slate-800 mb-4">{children}</h2>
               )
             }}
           >
@@ -144,16 +133,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
           <div className="mt-16">
-            <h2 className="text-2xl font-bold text-slate-800 mb-6">
-              Related Posts
-            </h2>
+            <h2 className="text-2xl font-bold text-slate-800 mb-6">Related Posts</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {relatedPosts.map((relatedPost) => (
-                <Link
-                  key={relatedPost.id}
-                  href={`/blog/${relatedPost.id}`}
-                  className="group"
-                >
+                <Link key={relatedPost.id} href={`/blog/${relatedPost.id}`} className="group">
                   <article className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="relative h-48 overflow-hidden">
                       <Image
@@ -167,9 +150,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       <h3 className="font-semibold text-slate-800 group-hover:text-sky-600 transition-colors">
                         {relatedPost.title}
                       </h3>
-                      <p className="text-sm text-slate-500 mt-1">
-                        {relatedPost.readTime}
-                      </p>
+                      <p className="text-sm text-slate-500 mt-1">{relatedPost.readTime}</p>
                     </div>
                   </article>
                 </Link>

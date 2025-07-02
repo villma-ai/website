@@ -1,8 +1,4 @@
-import {
-  collection,
-  getDocs,
-  Timestamp
-} from 'firebase/firestore';
+import { collection, getDocs, Timestamp } from 'firebase/firestore';
 import { getFirebaseDb } from './firebase';
 import { SubscriptionPlan } from '@villma/villma-ts-shared';
 
@@ -15,7 +11,7 @@ function convertTimestamps(data: Record<string, unknown>): Record<string, unknow
   // Convert known date fields
   const dateFields = ['createdAt', 'updatedAt', 'startDate', 'endDate', 'dueDate', 'paidAt'];
 
-  dateFields.forEach(field => {
+  dateFields.forEach((field) => {
     if (converted[field] && converted[field] instanceof Timestamp) {
       converted[field] = (converted[field] as Timestamp).toDate();
     }
@@ -30,7 +26,7 @@ export async function getSubscriptionPlans(): Promise<SubscriptionPlan[]> {
   const plansRef = collection(db, 'subscriptionPlans');
   const plansSnap = await getDocs(plansRef);
 
-  return plansSnap.docs.map(doc => ({
+  return plansSnap.docs.map((doc) => ({
     id: doc.id,
     ...convertTimestamps(doc.data())
   })) as unknown as SubscriptionPlan[];

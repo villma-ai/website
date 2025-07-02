@@ -50,20 +50,14 @@ const PricingCards: React.FC<PricingCardsProps> = ({ groupedPlans }) => {
           >
             <div className="p-8 h-full flex flex-col">
               {/* Optionally add a 'Popular' badge if you add such a field in Firestore */}
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                {plan.name}
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                {plan.description}
-              </p>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{plan.name}</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-6">{plan.description}</p>
 
               <div className="mb-8">
                 <span className="text-4xl font-bold text-gray-900 dark:text-white">
                   €{plan.price}
                 </span>
-                <span className="text-gray-500 dark:text-gray-400">
-                  /{plan.billingCycle}
-                </span>
+                <span className="text-gray-500 dark:text-gray-400">/{plan.billingCycle}</span>
               </div>
               <div className="flex flex-col justify-between flex-1">
                 <ul className="space-y-4 mb-8">
@@ -82,9 +76,7 @@ const PricingCards: React.FC<PricingCardsProps> = ({ groupedPlans }) => {
                           d="M5 13l4 4L19 7"
                         />
                       </svg>
-                      <span className="text-gray-600 dark:text-gray-300">
-                        {feature}
-                      </span>
+                      <span className="text-gray-600 dark:text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>

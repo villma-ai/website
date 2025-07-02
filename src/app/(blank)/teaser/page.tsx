@@ -1,5 +1,5 @@
-import Teaser from "@/components/Teaser";
+import Teaser from '@/components/Teaser';
 
 export default function TeaserPage() {
   return <Teaser />;
-} 
+}

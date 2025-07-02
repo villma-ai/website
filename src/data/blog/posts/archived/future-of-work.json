@@ -12,7 +12,14 @@
   "seo": {
     "title": "The Future of Work: How AI is Transforming Modern Business | Villma.ai",
     "description": "Explore the transformative impact of AI on the workplace. Learn how artificial intelligence is creating new opportunities and reshaping business operations.",
-    "keywords": ["future of work", "AI in business", "workplace transformation", "artificial intelligence", "business innovation", "digital workplace"],
+    "keywords": [
+      "future of work",
+      "AI in business",
+      "workplace transformation",
+      "artificial intelligence",
+      "business innovation",
+      "digital workplace"
+    ],
     "ogImage": "/blog/future-of-work.png",
     "ogTitle": "The Future of Work: AI's Transformative Impact",
     "ogDescription": "Discover how artificial intelligence is reshaping the modern workplace and creating new business opportunities.",
@@ -20,4 +27,4 @@
     "twitterTitle": "The Future of Work: AI's Role in Business",
     "twitterDescription": "Learn how AI is transforming the workplace and creating new opportunities for businesses."
   }
-} 
+}

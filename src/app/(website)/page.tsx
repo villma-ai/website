@@ -74,9 +74,7 @@ export default function Home() {
 
       {/* Features Section */}
       <section className="mb-16">
-        <h2 className="text-3xl font-semibold mb-8 text-center">
-          {content.features.title}
-        </h2>
+        <h2 className="text-3xl font-semibold mb-8 text-center">{content.features.title}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {content.features.items.map((feature, index) => (
             <div
@@ -84,9 +82,7 @@ export default function Home() {
               className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:bg-gradient-to-br hover:from-white hover:to-gray-50"
             >
               <div>
-                <h3 className="text-xl font-semibold mb-3 text-sky-600">
-                  {feature.title}
-                </h3>
+                <h3 className="text-xl font-semibold mb-3 text-sky-600">{feature.title}</h3>
                 <p className="text-gray-700 text-justify">
                   {feature.description.split('\n').map((line, i) => (
                     <span key={i}>
