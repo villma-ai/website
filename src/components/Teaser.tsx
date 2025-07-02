@@ -69,8 +69,8 @@ export default function Teaser() {
         className="object-cover object-center absolute inset-0 z-0 opacity-50"
         priority
       />
-      <div className="relative z-10 flex flex-col items-center w-full max-w-lg px-6 py-12 bg-white/80 rounded-xl shadow-2xl backdrop-blur-md">
-        <div className="flex justify-center -mt-10 md:-mt-[7rem] mb-6">
+      <div className="relative z-10 flex flex-col items-center w-full max-w-lg p-6 pb-12 rounded-xl shadow-2xl backdrop-blur-md bg-white md:bg-white/60 md:hover:bg-white/90 transition-colors">
+        <div className="flex justify-center mb-6">
           <Image
             src="/Villma-Logo_2025-05-21.jpg"
             alt="Villma Logo"
@@ -93,7 +93,7 @@ export default function Teaser() {
               required
               placeholder={content.teaser.inputPlaceholder}
               {...register('email')}
-              className={`border px-3 py-2 rounded w-full ${errors.email ? 'border-red-500' : ''}`}
+              className={`border px-3 py-2 rounded w-full ${errors.email ? 'border-red-500' : ''} focus:outline-none focus:ring-2 focus:ring-sky-500`}
               disabled={loading}
             />
             {errors.email && <div className="text-red-600 text-sm mt-1">{errors.email.message as string}</div>}
@@ -102,7 +102,7 @@ export default function Teaser() {
                 type="checkbox"
                 id="privacyConsent"
                 {...register('privacyConsent')}
-                className="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-500 mt-1"
+                className="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-500 mt-1 focus:outline-none focus:ring-2"
                 disabled={loading}
               />
               <label htmlFor="privacyConsent" className="ml-2 text-sm text-gray-700 cursor-pointer">
