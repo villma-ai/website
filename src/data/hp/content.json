@@ -54,6 +54,17 @@
       }
     ]
   },
+  "teaser": {
+    "title": "Not Just Another Chatbot. Your Tireless AI Sales Team.",
+    "subtitle": "Villma works 24/7 to turn visitors into customers—engaging, qualifying, and selling while you sleep. Experience the future of sales conversations.",
+    "image": "/images/teaser_01.jpg",
+    "formTitle": "Be the First to Experience Villma!",
+    "formDescription": "Leave your email to get early access and exclusive updates.",
+    "successMessage": "Thank you! We will notify you as soon as we are ready.",
+    "errorMessage": "Something went wrong. Please try again.",
+    "inputPlaceholder": "Your email",
+    "buttonText": "Notify Me"
+  },
   "features": {
     "title": "Key Features",
     "items": [

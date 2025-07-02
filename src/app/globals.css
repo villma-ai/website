@@ -35,3 +35,7 @@ body::before {
   background: #eee9e3;
   z-index: 40;
 }
+
+body.teaser-page::before {
+  display: none;
+}
