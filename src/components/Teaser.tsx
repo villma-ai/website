@@ -20,8 +20,6 @@ export default function Teaser() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  console.log('NEXT_PUBLIC_SHOW_TEASER - client', process.env.NEXT_PUBLIC_SHOW_TEASER )
-
   const {
     register,
     handleSubmit,
