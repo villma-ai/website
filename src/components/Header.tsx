@@ -85,12 +85,14 @@ const Header: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link
-                href="/demo"
-                className={`transition-colors ${isActive('/demo')}`}
+              <a
+                href="https://villma-ai-demo-01.myshopify.com/"
+                className="transition-colors hover:text-pink-500"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Demo
-              </Link>
+              </a>
             </li>
             <li>
               <Link
