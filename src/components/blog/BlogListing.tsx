@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import type { BlogPost } from '@/app/actions/blog';
+import type { BlogPost } from '@/actions/blog';
 
 interface Category {
   id: string;

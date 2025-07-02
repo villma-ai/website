@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getBlogPosts } from '@/app/actions/blog';
+import { getBlogPosts } from '@/actions/blog';
 import type { Metadata } from 'next';
 import ReactMarkdown from 'react-markdown';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import blogContent from '@/data/blog/content.json';
 import BlogListing from '@/components/blog/BlogListing';
-import { getBlogPosts, type BlogPost } from '@/app/actions/blog';
 import type { Metadata } from 'next';
+import { BlogPost, getBlogPosts } from '@/actions/blog';
 
 // Function to calculate category counts
 function calculateCategoryCounts(posts: BlogPost[]) {
