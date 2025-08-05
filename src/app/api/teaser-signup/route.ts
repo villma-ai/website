@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/firestore';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 export async function POST(req: NextRequest) {
   try {
@@ -8,9 +7,9 @@ export async function POST(req: NextRequest) {
     if (!email || typeof email !== 'string') {
       return NextResponse.json({ success: false, error: 'Invalid email' }, { status: 400 });
     }
-    await addDoc(collection(db, 'teaser_signups'), {
+    await db.collection('teaser_signups').add({
       email,
-      createdAt: serverTimestamp()
+      createdAt: new Date()
     });
     return NextResponse.json({ success: true });
   } catch (error) {

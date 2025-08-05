@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getFirebaseDb } from '@/lib/firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { getFirestoreDb } from '@/lib/firestore';
 
 function hasMessage(error: unknown): error is { message: string; } {
   return (
@@ -13,10 +12,10 @@ function hasMessage(error: unknown): error is { message: string; } {
 
 export async function GET() {
   try {
-    const db = getFirebaseDb();
-    const docRef = doc(db, 'settings', 'public');
-    const docSnap = await getDoc(docRef);
-    const showTeaser = docSnap.exists() ? docSnap.data().showTeaser === true : false;
+    const db = getFirestoreDb();
+    const docRef = db.doc('settings/public');
+    const docSnap = await docRef.get();
+    const showTeaser = docSnap.exists ? docSnap.data()?.showTeaser === true : false;
 
     return NextResponse.json({ showTeaser });
   } catch (error: unknown) {
