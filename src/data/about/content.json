@@ -11,7 +11,14 @@
   "seo": {
     "title": "About Villma.ai - AI Multi-Agent Innovation Team | 20+ Years Experience",
     "description": "Meet the team behind Villma.ai - three passionate founders with 20+ years of combined experience in AI, development, and business innovation. Learn about our mission to transform workplace productivity.",
-    "keywords": ["AI multi-agents", "team experience", "business innovation", "workplace transformation", "AI development", "productivity solutions"],
+    "keywords": [
+      "AI multi-agents",
+      "team experience",
+      "business innovation",
+      "workplace transformation",
+      "AI development",
+      "productivity solutions"
+    ],
     "ogImage": "/images/about-team.png",
     "ogTitle": "About Villma.ai - AI Multi-Agent Innovation Team",
     "ogDescription": "Discover our team's 20+ years of experience in AI and business innovation, dedicated to transforming workplace productivity.",
@@ -78,4 +85,4 @@
       "description": "We believe in empowering businesses to alleviate this burden. Our mission is to leverage AI to create smarter, more efficient workflows. This allows your team to focus on what truly matters while automated systems handle repetitive tasks, injecting productivity even when employees aren't actively at their desks, ultimately driving growth and well-being simultaneously."
     }
   }
-} 
+}

@@ -13,10 +13,7 @@ interface BlogFiltersProps {
   onFilterChange: (category: string | null) => void;
 }
 
-const BlogFilters: React.FC<BlogFiltersProps> = ({
-  categories,
-  onFilterChange
-}) => {
+const BlogFilters: React.FC<BlogFiltersProps> = ({ categories, onFilterChange }) => {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   const handleCategoryChange = (category: string | null) => {
@@ -28,9 +25,7 @@ const BlogFilters: React.FC<BlogFiltersProps> = ({
     <div className="mb-8">
       {/* Categories - Buttons on desktop, Combobox on mobile */}
       <div className="mb-4">
-        <h2 className="text-lg font-semibold text-slate-700 mb-2">
-          Categories:
-        </h2>
+        <h2 className="text-lg font-semibold text-slate-700 mb-2">Categories:</h2>
         {/* Mobile Combobox */}
         <select
           className="md:hidden w-full px-4 py-3 text-lg border border-slate-300 rounded-md bg-white text-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-500"
@@ -41,11 +36,7 @@ const BlogFilters: React.FC<BlogFiltersProps> = ({
             All Categories
           </option>
           {categories.map((category) => (
-            <option
-              key={category.id}
-              value={category.name}
-              className="text-lg py-2"
-            >
+            <option key={category.id} value={category.name} className="text-lg py-2">
               {category.name}
             </option>
           ))}

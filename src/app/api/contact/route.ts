@@ -102,7 +102,7 @@ Message: ${message}
 <p><strong>Request Reasons:</strong> ${reasonsText}</p>
 <p><strong>Message:</strong></p>
 <p>${message}</p>
-      `,
+      `
     };
 
     // Send email

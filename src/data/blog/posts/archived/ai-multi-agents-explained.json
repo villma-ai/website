@@ -12,7 +12,14 @@
   "seo": {
     "title": "AI Multi-Agents Explained: The Future of Business Automation | Villma.ai",
     "description": "Discover how AI multi-agents are transforming business automation. Learn about their applications, benefits, and impact on workflow management in this comprehensive guide.",
-    "keywords": ["AI multi-agents", "business automation", "workflow management", "artificial intelligence", "AI technology", "automation solutions"],
+    "keywords": [
+      "AI multi-agents",
+      "business automation",
+      "workflow management",
+      "artificial intelligence",
+      "AI technology",
+      "automation solutions"
+    ],
     "ogImage": "/blog/ai-multi-agents.png",
     "ogTitle": "AI Multi-Agents: Revolutionizing Business Automation",
     "ogDescription": "Explore how AI multi-agents are changing the landscape of business automation and workflow management.",
@@ -20,4 +27,4 @@
     "twitterTitle": "AI Multi-Agents: The Future of Automation",
     "twitterDescription": "Learn how AI multi-agents are transforming business processes and automation strategies."
   }
-} 
+}

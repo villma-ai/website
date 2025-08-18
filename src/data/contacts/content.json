@@ -2,7 +2,14 @@
   "seo": {
     "title": "Contact Villma.ai - Get Started with AI-Powered Solutions",
     "description": "Ready to transform your business with AI? Contact Villma.ai today to learn how our AI-powered solutions can help you scale your sales and improve productivity.",
-    "keywords": ["contact Villma", "AI solutions", "business consultation", "sales automation", "AI implementation", "get started"],
+    "keywords": [
+      "contact Villma",
+      "AI solutions",
+      "business consultation",
+      "sales automation",
+      "AI implementation",
+      "get started"
+    ],
     "ogImage": "/images/contact-header.png",
     "ogTitle": "Contact Villma.ai - Transform Your Business with AI",
     "ogDescription": "Get in touch with our team to learn how AI can transform your business operations and boost productivity.",
@@ -29,4 +36,4 @@
     "email": "info@villma.ai",
     "location": "Based in Europe"
   }
-} 
+}

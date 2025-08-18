@@ -6,7 +6,14 @@
   "seo": {
     "title": "Villma.ai - AI-Powered Sales Conversations for Business Growth",
     "description": "Transform your website visitors into engaged customers with our AI-powered sales conversations. Scale your sales team without scaling costs, available 24/7.",
-    "keywords": ["AI sales", "customer engagement", "sales automation", "AI conversations", "business growth", "sales team scaling"],
+    "keywords": [
+      "AI sales",
+      "customer engagement",
+      "sales automation",
+      "AI conversations",
+      "business growth",
+      "sales team scaling"
+    ],
     "ogImage": "/images/advantages-10.png",
     "ogTitle": "AI-Powered Sales Conversations for Business Growth",
     "ogDescription": "Transform website visitors into engaged customers with intelligent AI conversations available 24/7.",
@@ -53,6 +60,17 @@
         }
       }
     ]
+  },
+  "teaser": {
+    "title": "Not Just Another Chatbot. Your Tireless AI Sales Team.",
+    "subtitle": "Villma works 24/7 to turn visitors into customers—engaging, qualifying, and selling while you sleep. Experience the future of sales conversations.",
+    "image": "/images/teaser_01.jpg",
+    "formTitle": "Be the First to Experience Villma!",
+    "formDescription": "Leave your email to get early access and exclusive updates.",
+    "successMessage": "Thank you! We will notify you as soon as we are ready.",
+    "errorMessage": "Something went wrong. Please try again.",
+    "inputPlaceholder": "Your email",
+    "buttonText": "Notify Me"
   },
   "features": {
     "title": "Key Features",

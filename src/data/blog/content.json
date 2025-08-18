@@ -2,7 +2,14 @@
   "seo": {
     "title": "Villma.ai Blog - AI, Technology & Business Insights",
     "description": "Explore our latest insights on AI technology, business strategies, and the future of work. Stay updated with expert analysis and industry trends.",
-    "keywords": ["AI blog", "technology insights", "business strategies", "future of work", "AI technology", "industry trends"],
+    "keywords": [
+      "AI blog",
+      "technology insights",
+      "business strategies",
+      "future of work",
+      "AI technology",
+      "industry trends"
+    ],
     "ogImage": "/blog/blog-header.png",
     "ogTitle": "Villma.ai Blog - AI & Business Insights",
     "ogDescription": "Discover expert insights on AI technology, business strategies, and the future of work.",
@@ -10,4 +17,4 @@
     "twitterTitle": "Villma.ai Blog - Technology & Business Insights",
     "twitterDescription": "Stay updated with the latest insights on AI technology and business strategies."
   }
-} 
+}

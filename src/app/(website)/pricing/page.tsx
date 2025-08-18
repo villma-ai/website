@@ -5,7 +5,6 @@ import { Metadata } from 'next';
 import { getSubscriptionPlans } from '@/lib/firestore';
 import { SubscriptionPlan } from '@villma/villma-ts-shared';
 
-// Force dynamic rendering since this page uses Firebase data fetching
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
@@ -43,9 +42,7 @@ const PricingPage = async () => {
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {pricingData.title}
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            {pricingData.subtitle}
-          </p>
+          <p className="text-xl text-gray-600 dark:text-gray-300">{pricingData.subtitle}</p>
         </div>
 
         <PricingCards groupedPlans={groupedPlans} />
@@ -67,14 +64,11 @@ const PricingPage = async () => {
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h2 className="text-3xl font-bold text-white">
-                30-Day Money Back Guarantee
-              </h2>
+              <h2 className="text-3xl font-bold text-white">30-Day Money Back Guarantee</h2>
             </div>
             <p className="text-xl text-green-100 font-medium">
-              Try our services risk-free! If you&apos;re not completely
-              satisfied within 30 days, we&apos;ll give you a full refund. No
-              questions asked.
+              Try our services risk-free! If you&apos;re not completely satisfied within 30 days,
+              we&apos;ll give you a full refund. No questions asked.
             </p>
           </div>
         </div>
