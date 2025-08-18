@@ -66,7 +66,7 @@ export default function ContactForm() {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-
+    
     // Additional client-side validation
     if (!data.name || !data.email || !data.message || data.requestReasons.length === 0) {
       toast.error('Please fill in all required fields.');
@@ -78,7 +78,7 @@ export default function ContactForm() {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           name: data.name.trim(),
@@ -87,13 +87,13 @@ export default function ContactForm() {
           company: data.company?.trim() || '',
           message: data.message.trim(),
           requestReasons: data.requestReasons
-        })
+        }),
       });
 
       const result = await response.json();
 
       if (response.ok) {
-        toast.success("Message sent successfully! We'll get back to you soon.");
+        toast.success('Message sent successfully! We\'ll get back to you soon.');
         reset();
       } else {
         console.error('Contact form error:', result);

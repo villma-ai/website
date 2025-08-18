@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   serverExternalPackages: [],
   experimental: {},
-  env: {}
+  env: {},
 };
 
 export default nextConfig;
