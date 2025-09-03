@@ -1,5 +1,5 @@
 import React from 'react';
-import PricingCards from '@/components/PricingCards';
+import PurchaseFlow from '@/components/PurchaseFlow';
 import pricingData from '@/data/pricing/content.json';
 import { Metadata } from 'next';
 import { getSubscriptionPlans } from '@/lib/firestore';
@@ -45,7 +45,7 @@ const PricingPage = async () => {
           <p className="text-xl text-gray-600 dark:text-gray-300">{pricingData.subtitle}</p>
         </div>
 
-        <PricingCards groupedPlans={groupedPlans} />
+        <PurchaseFlow groupedPlans={groupedPlans} />
 
         {/* Money Back Guarantee */}
         <div className="mt-16 text-center">
@@ -64,11 +64,10 @@ const PricingPage = async () => {
                   d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <h2 className="text-3xl font-bold text-white">30-Day Money Back Guarantee</h2>
+              <h2 className="text-3xl font-bold text-white">{pricingData.guarantee.title}</h2>
             </div>
             <p className="text-xl text-green-100 font-medium">
-              Try our services risk-free! If you&apos;re not completely satisfied within 30 days,
-              we&apos;ll give you a full refund. No questions asked.
+              {pricingData.guarantee.description}
             </p>
           </div>
         </div>

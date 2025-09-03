@@ -11,5 +11,40 @@
   "title": "Choose Your Plan",
   "subtitle": "Flexible plans that grow with your business",
   "footer": "All plans can be terminated at any time",
-  "buttonText": "Get Started"
+  "buttonText": "Get Started",
+  "guarantee": {
+    "title": "30-Day Money Back Guarantee",
+    "description": "Try our services risk-free! If you're not completely satisfied within 30 days, we'll give you a full refund. No questions asked."
+  },
+  "purchaseFlow": {
+    "title": "How It Works",
+    "subtitle": "Our proven process ensures your success",
+    "steps": [
+      {
+        "id": "interview",
+        "title": "Interview",
+        "description": "We understand your business needs and requirements"
+      },
+      {
+        "id": "acceptance",
+        "title": "Acceptance",
+        "description": "We evaluate and approve your project for implementation"
+      },
+      {
+        "id": "setup",
+        "title": "Setup",
+        "description": "We configure and deploy your AI agent system"
+      },
+      {
+        "id": "trial",
+        "title": "6 Months Trial",
+        "description": "Full access to test and validate the system"
+      }
+    ],
+    "trialNote": "Villma sustains all the costs until the system works",
+    "afterTrial": {
+      "title": "After 6 Months",
+      "subtitle": "Choose your monthly plan"
+    }
+  }
 }
